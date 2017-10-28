@@ -7,12 +7,16 @@
 # tmux config: .tmux.conf
 # maybe .gitconfig
 
-dotfiles=(".vimrc", "config", ".tmux.conf", ".gitconfig")
+home_dotfiles=(".vimrc" ".tmux.conf" ".gitconfig")
 
 dir_df="${HOME}/.dotfiles"
 
+# make links for home dotfiles
+for dotfile in "${home_dotfiles[@]}";do
+	echo "${dir_df}/${dotfile}"
+	ln -sf "${dir_df}/${dotfile}" "${HOME}"
+done
 
-# make links
+# for terminator config
+ln -sf "${dir_df}/config" "${HOME}/.config/terminator/config"
 
-for dotfile in "${dotfiles[@]}";do
-	ln -sf "${HOME}"
