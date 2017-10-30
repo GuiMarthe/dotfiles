@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
+Plugin 'junegunn/goyo.vim'
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'gabrielelana/vim-markdown'
@@ -18,11 +18,11 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -106,7 +106,7 @@ vnoremap > >gv  " better indentation
 " " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-color wombat256mod
+"color wombat256mod
 
 
 
@@ -127,7 +127,7 @@ set undolevels=700
 
 "" Vim power line
 
-set rtp+=/home/gui/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/home/guima/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
 
 set laststatus=2
 
@@ -153,3 +153,15 @@ set wildmenu
 "
 " " THINGS TO CONSIDER:
 " " - :b lets you autocomplete any open buffer
+function! ProseMode()
+  call goyo#execute(0, [])
+  set spell noci nosi noai nolist noshowmode noshowcmd
+  set complete+=s
+  set bg=light
+  " if !has('gui_running')
+  "   let g:solarized_termcolors=256
+  " endif
+  " colors solarized
+endfunction
+
+command! ProseMode call ProseMode()
