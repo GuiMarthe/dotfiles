@@ -19,4 +19,9 @@ done
 
 # for terminator config
 ln -sf "${dir_df}/config" "${HOME}/.config/terminator/config"
-
+# for file type exclusive configs
+mkdir -p "${HOME}/.vim/ftplugin"
+ln -s "${dir_df}/ftplugin"/ "${HOME}/.vim/ftplugin"
+# place for my code snippets
+mkdir -p "${HOME}/.vim/ftplugin"
+ln -s  "{dir_df}/snippets/" "${HOME}/.vim/snippets" 
