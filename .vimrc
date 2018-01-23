@@ -127,7 +127,7 @@ set undolevels=700
 
 "" Vim power line
 
-set rtp+=/home/guima/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/home/gui/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
 
 set laststatus=2
 
@@ -155,7 +155,7 @@ set wildmenu
 " " - :b lets you autocomplete any open buffer
 function! ProseMode()
   call goyo#execute(0, [])
-  set spell noci nosi noai nolist noshowmode noshowcmd
+  set  noci nosi noai nolist noshowmode noshowcmd
   set complete+=s
   set bg=light
   " if !has('gui_running')
