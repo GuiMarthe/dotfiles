@@ -100,7 +100,7 @@ set undolevels=700
 
 "" Vim power line
 
-set rtp+=/home/gui/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/home/$USER/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
 
 set laststatus=2
 
