@@ -29,7 +29,12 @@ command! ProseMode call ProseMode()
 " [s will go to the next wrong word
 " ]s will go back one wrong word
 
-" a few commands so we can have automatic headers
+" a few commands so we can have automatic stuff
 	autocmd Filetype markdown,rmd inoremap ;1 #<Space><Enter><++><Esc>kA
 	autocmd Filetype markdown,rmd inoremap ;2 ##<Space><Enter><++><Esc>kA
 	autocmd Filetype markdown,rmd inoremap ;3 ###<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ;i ![](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ;a [](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ;b ****<++><Esc>F*hi
+	autocmd Filetype markdown,rmd inoremap ;s ~~~~<++><Esc>F~hi
+	autocmd Filetype markdown,rmd inoremap ;e **<++><Esc>F*i

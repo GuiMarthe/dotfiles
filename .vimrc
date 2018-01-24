@@ -16,6 +16,7 @@ call vundle#begin()
 	Plugin 'tpope/vim-commentary'
 	Plugin 'junegunn/goyo.vim'
 	Plugin 'michaeljsmith/vim-indent-object'
+	Plugin 'vim-scripts/ReplaceWithRegister'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -134,9 +135,10 @@ map ZX :wq <CR>
 
 
 " Navigating with guides
-	inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-	vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-	map <Space><Tab> <Esc>/<++><Enter>"_c4l
+	inoremap <tab><tab> <esc>/<++><enter>"_c4l
+	vnoremap <tab><tab> <esc>/<++><enter>"_c4l
+	map <tab><tab> <esc>/<++><enter>"_c4l
 	inoremap ;gui <++>
+	nnoremap ;gui a<++><esc>
 
 

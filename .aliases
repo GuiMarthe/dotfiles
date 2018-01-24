@@ -13,4 +13,6 @@ alias dg='datagrip.sh &'
 
 alias dgh='datagrip.sh . &'
 
+alias v="vim"
+alias sv="sudo vim"
 
