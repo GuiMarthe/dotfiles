@@ -33,6 +33,6 @@ set expandtab       " Expand TABs to spaces
 
 " function defninition
 
-inoremap ;func <Esc>:-1read /home/gui/.vim/snippets/python_snippets/function_snippet.py<CR>Vj
-inoremap ;class <Esc>:-1read /home/gui/.vim/snippets/python_snippets/class_snippet.py<CR>
+inoremap ;func <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/function_snippet.py<CR>Vj
+inoremap ;class <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/class_snippet.py<CR>
 
