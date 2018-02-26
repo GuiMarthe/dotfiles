@@ -18,6 +18,7 @@ call vundle#begin()
 	Plugin 'michaeljsmith/vim-indent-object'
 	Plugin 'vim-scripts/ReplaceWithRegister'
 	Plugin 'pangloss/vim-javascript'
+	Plugin 'rust-lang/rust.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
