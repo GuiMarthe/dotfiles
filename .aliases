@@ -1,18 +1,19 @@
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 alias ucon='/opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli'
-
-alias rs='rstudio . &>/dev/null &'
 
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias dg='datagrip.sh &'
-
-alias dgh='datagrip.sh . &'
-
 alias v="vim"
 alias sv="sudo vim"
+alias vcfg="vim ~/.vimrc"
+alias vma="vim ~/.dotfiles/.aliases"
+alias vla="vim ~/.local_aliases"
 
+alias rs="rstudio . &>/dev/null &"
+
+alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"
+
+alias tt='tree .'
+
+alias cd..='cd ..'
+
+alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'

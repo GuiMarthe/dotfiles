@@ -1,3 +1,4 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -19,6 +20,10 @@ call vundle#begin()
 	Plugin 'vim-scripts/ReplaceWithRegister'
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'rust-lang/rust.vim'
+	Plugin 'elzr/vim-json'
+	Plugin 'alfredodeza/jacinto.vim'
+	Plugin 'mileszs/ack.vim'
+	Plugin 'sjl/badwolf'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -77,7 +82,7 @@ vnoremap <Leader>s :sort<CR>
 
 " easier moving of code blocks
 " " Try to go into visual mode (v), thenselect several lines of code here and
-" " then press ``>`` several times.
+" " then press ``>`` several time.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
@@ -85,6 +90,7 @@ vnoremap > >gv  " better indentation
 " " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
+colorscheme badwolf         " awesome colorscheme
 "color wombat256mod
 
 " Enable syntax highlighting
@@ -129,7 +135,7 @@ set wildmenu
 " " THINGS TO CONSIDER:
 " " - :b lets you autocomplete any open buffer
 
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 
 " Nice little way to save and save+exit
 map Z :w! <CR>
@@ -144,3 +150,5 @@ map ZX :wq <CR>
 	nnoremap ;gui a<++><esc>
 
 
+
+command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
