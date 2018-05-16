@@ -35,4 +35,5 @@ setlocal expandtab       " Expand TABs to spaces
 inoremap ;func <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/function_snippet.py<CR>Vj
 " class defninition
 inoremap ;class <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/class_snippet.py<CR>
+inoremap ;main <Esc>:-1read /home/gui/.vim/snippets/python_snippets/script_snippet.py<CR>
 
