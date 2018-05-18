@@ -84,7 +84,6 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 export PATH="/usr/bin:$PATH"
 export PATH="/home/guima/anaconda3/bin:$PATH"
 export PATH="/home/guima/.cargo/bin/:$PATH"
