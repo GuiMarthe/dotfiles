@@ -12,7 +12,6 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias dg='datagrip.sh &'
 
 alias dgh='datagrip.sh . &'
-
 alias v="vim"
 alias sv="sudo vim"
 
