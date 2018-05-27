@@ -36,4 +36,5 @@ inoremap ;func <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/function_s
 " class defninition
 inoremap ;class <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/class_snippet.py<CR>
 inoremap ;main <Esc>:-1read /home/gui/.vim/snippets/python_snippets/script_snippet.py<CR>
+inoremap ;pr print(<++>)<Esc>Fp
 
