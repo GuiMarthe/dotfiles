@@ -12,7 +12,10 @@ alias rs="rstudio . &>/dev/null &"
 
 alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"
 
-alias tt='tree .'
+alias tt='tree'
+alias tt1='tree . -L 1'
+alias tt2='tree . -L 2'
+alias tt3='tree . -L 3'
 
 alias cd..='cd ..'
 
