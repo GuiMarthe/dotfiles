@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -24,6 +23,7 @@ call vundle#begin()
 	Plugin 'alfredodeza/jacinto.vim'
 	Plugin 'mileszs/ack.vim'
 	Plugin 'sjl/badwolf'
+	Plugin 'mattn/vim-sqlfmt'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -149,6 +149,22 @@ map ZX :wq <CR>
 	inoremap ;gui <++>
 	nnoremap ;gui a<++><esc>
 
-
-
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+inoremap ;time <Esc>:InsertTime<cr>
+inoremap ;date <Esc>a<c-r>=strftime('%F)<cr>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>ç :call RenameFile()<cr>
