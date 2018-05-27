@@ -90,3 +90,18 @@ stty -ixon
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 
+#### My aliases
+if [ -f ~/.dotfiles/.aliases ]; then
+	source ~/.dotfiles/.aliases
+else 
+	print "404: my personal aliases not found."
+
+fi
+
+
+### Local aliases
+if [ -f ~/.local_aliases ]; then
+	source ~/.local_aliases
+else 
+	print "404: my local aliases not found."
+fi
