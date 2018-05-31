@@ -178,9 +178,6 @@ fun! ToggleNumber()
     if exists('+relativenumber')
         :exec &nu==&rnu? "setl nu!" : "setl rnu!"
     else
-        setl nu! 
+        setl nu!
     endif
 endf 
-
-
-
