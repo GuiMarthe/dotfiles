@@ -5,8 +5,8 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias v="vim"
 alias sv="sudo vim"
 alias vcfg="vim ~/.vimrc"
-alias vma="vim ~/.dotfiles/.aliases"
-alias vla="vim ~/.local_aliases"
+alias vma='vim -c ":set syntax=sh" ~/.dotfiles/.aliases'
+alias vla='vim -c ":set syntax=sh" ~/.local_aliases'
 
 alias rs="rstudio . &>/dev/null &"
 
@@ -20,3 +20,5 @@ alias tt3='tree . -L 3'
 alias cd..='cd ..'
 
 alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'
+alias vh='vim .'
+alias dfd='cd ~/.dotfiles'
