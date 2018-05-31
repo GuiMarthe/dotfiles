@@ -19,11 +19,12 @@ call vundle#begin()
 	Plugin 'vim-scripts/ReplaceWithRegister'
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'rust-lang/rust.vim'
-	Plugin 'elzr/vim-json'
 	Plugin 'alfredodeza/jacinto.vim'
 	Plugin 'mileszs/ack.vim'
 	Plugin 'sjl/badwolf'
 	Plugin 'mattn/vim-sqlfmt'
+	Plugin 'vim-scripts/indentpython.vim'
+	Plugin 'gaving/vim-textobj-argument'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -37,14 +38,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
+" netrw 
+let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+let g:netrw_winsize = 30
+let g:netrw_banner = 0
 " Plugins options
-
 let g:jedi#auto_initialization = 0
 
 " Better copy & paste
-" " When you want to paste large blocks of code into vim, press F2 before you
-" " paste. At the bottom you should see ``-- INSERT (paste) --``.
+" When you want to paste large blocks of code into vim, press F2 before you
+" paste. At the bottom you should see ``-- INSERT (paste) --``.
 
 set pastetoggle=<F2>
 set clipboard=unnamedplus
@@ -53,21 +57,14 @@ set clipboard=unnamedplus
 set mouse=a  " on OSX press ALT and click
 set bs=2     " make backspace behave like normal again
 
-" Bind nohl
-" " Removes highlight of your last search
-" " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-noremap <C-n> :nohl<CR>
-"vnoremap <C-n> :nohl<CR>
-"inoremap <C-n> :nohl<CR>
-
 " Rebind <Leader> key
 " I like to have it here becuase it is easier to reach than the default and
-" " it is next to ``m`` and ``n`` which I use for navigating between tabs.
+" it is next to ``m`` and ``n`` which I use for navigating between tabs.
 let mapleader = ","
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using
 " Ctrl+w + <movement>
-" " Every unnecessary keystroke that can be saved is good for your health :)
+" Every unnecessary keystroke that can be saved is good for your health :)
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
@@ -77,24 +74,24 @@ map <c-h> <c-w>h
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-" map sort function to a key
-vnoremap <Leader>s :sort<CR>
+" go to last edited file
+nnoremap <Leader><Leader> <c-^>
 
 " easier moving of code blocks
-" " Try to go into visual mode (v), thenselect several lines of code here and
-" " then press ``>`` several time.
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several time.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
 " Color scheme
-" " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
 colorscheme badwolf         " awesome colorscheme
 "color wombat256mod
 
 " Enable syntax highlighting
-" " You need to reload this file for the change to apply
+" You need to reload this file for the change to apply
 filetype off
 filetype plugin indent on
 syntax on
@@ -107,33 +104,35 @@ nmap Q gqap
 set history=700
 set undolevels=700
 
-"" Vim power line
+" Vim power line
 
 set rtp+=/home/$USER/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
 
 set laststatus=2
 
-" set 'updatetime' to 15 seconds when in insert mode
-au InsertEnter * let updaterestore=&updatetime | set updatetime=1500
-au InsertLeave * let &updatetime=updaterestore
+" set 'updatetime' to X seconds when in insert mode
+" au InsertEnter * let updaterestore=&updatetime | set updatetime=7000
+" au InsertLeave * let &updatetime=updaterestore
+" au CursorHoldI * stopinsert
 
 " Stuff from this presentation
 " https://youtu.be/XA2WjJbmmoM
 " FINDING FILES:
 "
-" " Search down into subfolders
-" " Provides tab-completion for all file-related tasks
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
 set path+=**
 "
-" " Display all matching files when we tab complete
+" Display all matching files when we tab complete
 set wildmenu
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
 "
-" " NOW WE CAN:
-" " - Hit tab to :find by partial match
-" " - Use * to make it fuzzy
-"
-" " THINGS TO CONSIDER:
-" " - :b lets you autocomplete any open buffer
+" THINGS TO CONSIDER:
+" - :b lets you autocomplete any open buffer
+" use emacs-style tab completion when selecting files, etc
+set wildmode=longest,list
 
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 
@@ -141,23 +140,25 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 map Z :w! <CR>
 map ZX :wq <CR>
 
+"""""""""""""""""""""""""""""""""""""""
+" NAVIGATING WITH GUIDES
+"""""""""""""""""""""""""""""""""""""""
+inoremap <tab><tab> <esc>/<++><enter>"_c4l
+vnoremap <tab><tab> <esc>/<++><enter>"_c4l
+map <tab><tab> <esc>/<++><enter>"_c4l
+inoremap ;gui <++>
+nnoremap ;gui a<++><esc>
 
-" Navigating with guides
-	inoremap <tab><tab> <esc>/<++><enter>"_c4l
-	vnoremap <tab><tab> <esc>/<++><enter>"_c4l
-	map <tab><tab> <esc>/<++><enter>"_c4l
-	inoremap ;gui <++>
-	nnoremap ;gui a<++><esc>
-
+"""""""""""""""""""""""""""""""""""""""
+" INSERT TIME
+"""""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 inoremap ;time <Esc>:InsertTime<cr>
 inoremap ;date <Esc>a<c-r>=strftime('%F)<cr>
 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
     let old_name = expand('%')
     let new_name = input('New file name: ', expand('%'), 'file')
@@ -167,4 +168,19 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>ç :call RenameFile()<cr>
+map <leader>s :call RenameFile()<cr>
+
+"""""""""""""""""""""""""""""""""""""""
+" TOGGLE NUMBERING
+"""""""""""""""""""""""""""""""""""""""
+nn <F3> :call ToggleNumber()<CR>
+fun! ToggleNumber()
+    if exists('+relativenumber')
+        :exec &nu==&rnu? "setl nu!" : "setl rnu!"
+    else
+        setl nu! 
+    endif
+endf 
+
+
+
