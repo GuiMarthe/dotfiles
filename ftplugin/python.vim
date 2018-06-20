@@ -1,5 +1,5 @@
 "highlight Normal ctermfg=grey ctermbg=darkblue
-echo 'loading python config from ftplugin'
+" echo 'loading python config from ftplugin'
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_on_dot = 0
 let g:jedi#force_py_version = 3
