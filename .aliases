@@ -1,10 +1,10 @@
 alias ucon='/opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli'
-
 alias tmux="TERM=screen-256color-bce tmux"
-
 alias v="vim"
 alias sv="sudo vim"
 alias vcfg="vim ~/.vimrc"
+alias vma="vim ~/.dotfiles/.aliases"
+alias vla="vim ~/.local_aliases"
 alias vma='vim -c ":set syntax=sh" ~/.dotfiles/.aliases'
 alias vla='vim -c ":set syntax=sh" ~/.local_aliases'
 
