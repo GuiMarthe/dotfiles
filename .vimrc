@@ -38,6 +38,26 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Stuff from this presentation
+" https://youtu.be/XA2WjJbmmoM
+" FINDING FILES:
+"
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+"
+" Display all matching files when we tab complete
+" set wildmenu
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
+set wildmenu
+"
+" THINGS TO CONSIDER:
+" - :b lets you autocomplete any open buffer
+" use emacs-style tab completion when selecting files, etc
+set wildmode=longest,full
 " netrw 
 let g:netrw_liststyle = 3
 let g:netrw_preview = 1
@@ -115,24 +135,6 @@ set laststatus=2
 " au InsertLeave * let &updatetime=updaterestore
 " au CursorHoldI * stopinsert
 
-" Stuff from this presentation
-" https://youtu.be/XA2WjJbmmoM
-" FINDING FILES:
-"
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-set path+=**
-"
-" Display all matching files when we tab complete
-set wildmenu
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-"
-" THINGS TO CONSIDER:
-" - :b lets you autocomplete any open buffer
-" use emacs-style tab completion when selecting files, etc
-set wildmode=longest,list
 
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 
