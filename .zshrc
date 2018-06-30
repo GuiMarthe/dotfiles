@@ -2,12 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/guima/.oh-my-zsh
+export ZSH=/home/$USER/.oh-my-zsh
+ZSH_THEME="steeef"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -85,8 +86,8 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/bin:$PATH"
-export PATH="/home/guima/anaconda3/bin:$PATH"
-export PATH="/home/guima/.cargo/bin/:$PATH"
+export PATH="/home/$USER/anaconda3/bin:$PATH"
+export PATH="/home/$USER/.cargo/bin/:$PATH"
 
 alias R='/usr/bin/R'
 stty -ixon
@@ -109,3 +110,8 @@ if [ -f ~/.local_aliases ]; then
 else 
 	print "404: my local aliases not found."
 fi
+
+eval "$(pipenv --completion)"
+
+
+

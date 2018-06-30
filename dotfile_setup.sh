@@ -7,7 +7,7 @@
 # tmux config: .tmux.conf
 # maybe .gitconfig
 
-home_dotfiles=(".vimrc" ".tmux.conf" ".gitconfig")
+home_dotfiles=(".vimrc" ".tmux.conf" ".gitconfig", ".zshrc")
 
 dir_df="${HOME}/.dotfiles"
 
