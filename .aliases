@@ -12,13 +12,14 @@ alias rs="rstudio . &>/dev/null &"
 
 alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"
 
-alias tt='tree'
-alias tt1='tree . -L 1'
-alias tt2='tree . -L 2'
-alias tt3='tree . -L 3'
+alias t='tree'
+alias tt='tree . -L 1'
+alias ttt='tree . -L 2'
+alias tttt='tree . -L 3'
 
 alias cd..='cd ..'
 
 alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'
 alias vh='vim .'
 alias dfd='cd ~/.dotfiles'
+alias ipy='ipython --matplotlib'
