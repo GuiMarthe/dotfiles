@@ -25,14 +25,14 @@ setlocal expandtab       " Expand TABs to spaces
 	match ExtraWhitespace /\s\+$/
 
 " 80 characters colored column
-	setlocal cc=80
+	setlocal cc=120
 	hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 """" code snippets
 
 " function defninition
 
-inoremap ;func <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/function_snippet.py<CR>Vj
+inoremap ;def <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/function_snippet.py<CR>jVk
 " class defninition
 inoremap ;class <Esc>:-1read /home/$USER/.vim/snippets/python_snippets/class_snippet.py<CR>
 inoremap ;main <Esc>:-1read /home/gui/.vim/snippets/python_snippets/script_snippet.py<CR>

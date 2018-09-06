@@ -25,6 +25,10 @@ call vundle#begin()
 	Plugin 'gaving/vim-textobj-argument'
 	Plugin 'Townk/vim-autoclose'
 	Plugin 'prakashdanish/vimport'
+	Plugin 'ekalinin/Dockerfile.vim'
+	Plugin 'tmhedberg/SimpylFold'
+	Plugin 'vimwiki/vimwiki'
+	Plugin 'dracula/vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -107,8 +111,10 @@ vnoremap > >gv  " better indentation
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
-colorscheme badwolf         " awesome colorscheme
+" colorscheme badwolf         " awesome colorscheme
 "color wombat256mod
+colorscheme dracula
+hi Comment guifg=#5C6370 ctermfg=59
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -183,3 +189,10 @@ fun! ToggleNumber()
         setl nu!
     endif
 endf 
+
+
+"""""""""""""""""""""""""""""""""""""""
+" VIMWIKI CONFIG
+"""""""""""""""""""""""""""""""""""""""
+
+
