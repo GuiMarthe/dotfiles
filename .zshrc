@@ -88,21 +88,19 @@ alias zshconfig="vim ~/.zshrc"
 export PATH="/usr/bin:$PATH"
 export PATH="/home/$USER/anaconda3/bin:$PATH"
 export PATH="/home/$USER/.cargo/bin/:$PATH"
+export PATH="/home/$USER/bin/:$PATH"
 
 alias R='/usr/bin/R'
 stty -ixon
 
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
-
 #### My aliases
 if [ -f ~/.dotfiles/.aliases ]; then
 	source ~/.dotfiles/.aliases
 else 
 	print "404: my personal aliases not found."
-
 fi
-
 
 ### Local aliases
 if [ -f ~/.local_aliases ]; then
@@ -112,9 +110,6 @@ else
 fi
 
 eval "$(pipenv --completion)"
-
-
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc' ]; then source '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc'; fi
