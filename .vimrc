@@ -122,13 +122,13 @@ filetype off
 filetype plugin indent on
 syntax on
 
-" easier formatting of paragraphs
-vmap Q gq
-nmap Q gqap
 
 " Useful settings
 set history=700
 set undolevels=700
+set nu
+set rnu
+set cursorline
 
 " Vim power line
 
