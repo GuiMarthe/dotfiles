@@ -21,7 +21,7 @@ command! ProseMode call ProseMode()
 	inoremap <F10> <esc>:ProseMode<CR>a
 	
 " Simple toggle for spelling
-	map <F6> :setlocal spell! spelllang=en_us,pt_br,pt<CR>
+map <F6> :setlocal spell! spelllang=en_us,pt_br,pt<CR>
 
 " Use the zg command to its good words dictionary. 
 " zw will add a word to the wrong words dictionary.
@@ -38,3 +38,6 @@ command! ProseMode call ProseMode()
 	autocmd Filetype markdown,rmd inoremap ;b ****<++><Esc>F*hi
 	autocmd Filetype markdown,rmd inoremap ;s ~~~~<++><Esc>F~hi
 	autocmd Filetype markdown,rmd inoremap ;e **<++><Esc>F*i
+" easier formatting of paragraphs
+	autocmd Filetype markdown,rmd vmap Q gq
+	autocmd Filetype markdown,rmd nmap Q gqap
