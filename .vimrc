@@ -95,7 +95,7 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
+map <Leader><Space> <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 " go to last edited file
