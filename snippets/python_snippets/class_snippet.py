@@ -1,13 +1,13 @@
-Class <++>(object):
+class <++>(object):
 
     def __init__(self, <++>):
-	pass
+        pass
 
     def __repr__(self):
-	pass
+        pass
 
     def __str__(self):
-	pass
+        pass
 
     def <++>(self, <++>):
         pass
