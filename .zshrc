@@ -86,7 +86,7 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/bin:$PATH"
-export PATH="/home/$USER/anaconda3/bin:$PATH"
+# export PATH="/home/$USER/anaconda3/bin:$PATH"
 export PATH="/home/$USER/.cargo/bin/:$PATH"
 export PATH="/home/$USER/bin/:$PATH"
 
@@ -116,3 +116,10 @@ if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.z
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/completion.zsh.inc'; fi
+
+# export PYTHONPATH=$PYTHONPATH:/usr/lib/python37.zip:/usr/lib/python3.7:/usr/lib/python3.7/lib-dynload:/usr/lib/python3.7/site-packages
+
+# pyenv stuff
+export PATH="/home/gui/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

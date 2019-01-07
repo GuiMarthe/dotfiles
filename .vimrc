@@ -28,7 +28,8 @@ call vundle#begin()
 	Plugin 'ekalinin/Dockerfile.vim'
 	Plugin 'tmhedberg/SimpylFold'
 	Plugin 'vimwiki/vimwiki'
-	Plugin 'dracula/vim'
+	Plugin 'arcticicestudio/nord-vim'
+	Plugin 'itchyny/lightline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -57,6 +58,12 @@ set path+=**
 " - Hit tab to :find by partial match
 " - Use * to make it fuzzy
 set wildmenu
+
+
+" Split the correct way
+set splitbelow
+set splitright
+
 "
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
@@ -113,8 +120,12 @@ vnoremap > >gv  " better indentation
 set t_Co=256
 " colorscheme badwolf         " awesome colorscheme
 "color wombat256mod
-colorscheme dracula
+colorscheme nord
 hi Comment guifg=#5C6370 ctermfg=59
+
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -130,9 +141,6 @@ set nu
 set rnu
 set cursorline
 
-" Vim power line
-
-set rtp+=/home/$USER/anaconda3/lib/python3.6/site-packages/powerline/bindings/vim/
 
 set laststatus=2
 
@@ -195,7 +203,5 @@ endf
 " VIMWIKI CONFIG
 """""""""""""""""""""""""""""""""""""""
 
-
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown':'markdown'}
-
 

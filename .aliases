@@ -8,6 +8,8 @@ alias vla="vim ~/.local_aliases"
 alias vma='vim -c ":set syntax=sh" ~/.dotfiles/.aliases'
 alias vla='vim -c ":set syntax=sh" ~/.local_aliases'
 
+alias rstudio='rstudio-bin'
+
 alias rs="rstudio . &>/dev/null &"
 
 alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"
@@ -22,5 +24,6 @@ alias cd..='cd ..'
 alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'
 alias vh='vim .'
 alias dfd='cd ~/.dotfiles'
-alias ipy='ipython --matplotlib'
+alias ipy='ipython --matplotlib=qt --TerminalInteractiveShell.editing_mode=vi'
 alias g=git
+alias ll='ls -la'
