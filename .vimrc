@@ -19,17 +19,16 @@ call vundle#begin()
 	Plugin 'vim-scripts/ReplaceWithRegister'
 	Plugin 'alfredodeza/jacinto.vim'
 	Plugin 'mileszs/ack.vim'
-	Plugin 'sjl/badwolf'
 	Plugin 'mattn/vim-sqlfmt'
-	Plugin 'vim-scripts/indentpython.vim'
 	Plugin 'gaving/vim-textobj-argument'
 	Plugin 'Townk/vim-autoclose'
-	Plugin 'prakashdanish/vimport'
 	Plugin 'ekalinin/Dockerfile.vim'
-	Plugin 'tmhedberg/SimpylFold'
 	Plugin 'vimwiki/vimwiki'
 	Plugin 'arcticicestudio/nord-vim'
 	Plugin 'itchyny/lightline.vim'
+	Plugin 'ambv/black'
+	Plugin 'Vimjas/vim-python-pep8-indent'
+        Plugin 'junegunn/fzf.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:

@@ -1,5 +1,6 @@
 alias ucon='/opt/forticlient-sslvpn/64bit/forticlientsslvpn_cli'
 alias tmux="TERM=screen-256color-bce tmux"
+
 alias v="vim"
 alias sv="sudo vim"
 alias vcfg="vim ~/.vimrc"
@@ -24,6 +25,14 @@ alias cd..='cd ..'
 alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'
 alias vh='vim .'
 alias dfd='cd ~/.dotfiles'
-alias ipy='ipython --matplotlib=qt --TerminalInteractiveShell.editing_mode=vi'
+alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
 alias g=git
-alias ll='ls -la'
+
+alias ff='fzf-tmux'
+alias f='fzf'
+
+alias ll='ls -la --group-directories-first'
+
+alias l='ls -l --group-directories-first --human-readable'
+
+
