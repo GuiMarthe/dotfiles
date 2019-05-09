@@ -22,7 +22,6 @@ alias tttt='tree . -L 3'
 
 alias cd..='cd ..'
 
-alias mka='cookiecutter ~/.cookiecutters/cookiecutter-data-science/'
 alias vh='vim .'
 alias dfd='cd ~/.dotfiles'
 alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
