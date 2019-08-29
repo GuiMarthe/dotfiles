@@ -86,7 +86,6 @@ alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/bin:$PATH"
-# export PATH="/home/$USER/anaconda3/bin:$PATH"
 export PATH="/home/$USER/.cargo/bin/:$PATH"
 export PATH="/home/$USER/bin/:$PATH"
 
@@ -109,7 +108,6 @@ else
 	print "404: my local aliases not found."
 fi
 
-eval "$(pipenv --completion)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc' ]; then source '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc'; fi
@@ -123,3 +121,4 @@ if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/comple
 export PATH="/home/gui/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(pipenv --completion)"
