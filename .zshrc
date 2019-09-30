@@ -122,3 +122,27 @@ export PATH="/home/gui/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pipenv --completion)"
+
+# nvm config
+
+# Set up Node Version Manager
+export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
+export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
+[ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # Load NVM
+
+# FZF configs
+
+##export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+	source /usr/share/fzf/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/completion.zsh ]; then
+	source /usr/share/fzf/completion.zsh
+fi
+
+export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
+#export FZF_DEFAULT_COMMAND='rg --files'
+#export FZF_CTRL_T_COMMAND=fzf
