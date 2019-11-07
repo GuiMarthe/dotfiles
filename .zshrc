@@ -122,7 +122,7 @@ export PATH="/home/gui/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pipenv --completion)"
-
+#export PIPENV_PYTHON=/home/gui/.pyenv/shims/python
 # nvm config
 
 # Set up Node Version Manager
@@ -143,6 +143,7 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
 	source /usr/share/fzf/completion.zsh
 fi
 
-export FZF_DEFAULT_OPTS='--height=70% --preview="cat {}" --preview-window=right:60%:wrap'
-export FZF_DEFAULT_COMMAND='rg --files'
-#export FZF_CTRL_T_COMMAND=fzf
+export FZF_DEFAULT_OPTS='--height=40% --preview="cat {}" --preview-window=right:60%:wrap'
+export FZF_DEFAULT_COMMAND='rg --files ~'
+
+source $HOME/.poetry/env
