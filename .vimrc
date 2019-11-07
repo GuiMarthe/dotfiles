@@ -26,7 +26,7 @@ call vundle#begin()
 	Plugin 'vimwiki/vimwiki'
 	Plugin 'arcticicestudio/nord-vim'
 	Plugin 'itchyny/lightline.vim'
-	Plugin 'ambv/black'
+	Plugin 'psf/black'
 	Plugin 'Vimjas/vim-python-pep8-indent'
         Plugin 'junegunn/fzf.vim'
 call vundle#end()            " required
@@ -183,7 +183,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>s :call RenameFile()<cr>
+map <leader>S :call RenameFile()<cr>
 
 """""""""""""""""""""""""""""""""""""""
 " TOGGLE NUMBERING
@@ -203,4 +203,9 @@ endf
 """""""""""""""""""""""""""""""""""""""
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown':'markdown'}
+
+
+" let g:black_virtualenv =  '/home/gui/.dotfiles/black_env/'
+let g:black_linelength = 88
+
 
