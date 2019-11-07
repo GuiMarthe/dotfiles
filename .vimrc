@@ -169,7 +169,7 @@ nnoremap ;gui a<++><esc>
 """""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 inoremap ;time <Esc>:InsertTime<cr>
-inoremap ;date <Esc>a<c-r>=strftime('%F)<cr>
+inoremap ;date <Esc>a<c-r>=strftime('%F')<cr>
 
 """""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
