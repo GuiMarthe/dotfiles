@@ -1,24 +1,15 @@
 
 hi ColorColumn ctermbg=black guibg=black
-" Markdown settings
-let g:markdown_enable_spell_checking = 0
-let g:markdown_include_jekyll_support = 1
 
 function! ProseMode()
   call goyo#execute(0, [])
   set  noci nosi noai nolist noshowmode noshowcmd
   set complete+=s
   set bg=light
-  " if !has('gui_running')
-  "   let g:solarized_termcolors=256
-  " endif
-  " colors solarized
 endfunction
 
 command! ProseMode call ProseMode()
 " Simple mapping for prose mode
-	map <F10> :ProseMode<CR>
-	inoremap <F10> <esc>:ProseMode<CR>a
 	
 " Simple toggle for spelling
 map <F6> :setlocal spell! spelllang=en_us,pt_br,pt<CR>
