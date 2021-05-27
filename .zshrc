@@ -52,7 +52,7 @@ HIST_STAMPS="yyyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, pip, debian, docker, gitignore, colorize, autopep8, aws, jsontools, python, vi-mode, httpie)
+plugins=(git, pip, debian, docker, gitignore, colorize, autopep8, aws, jsontools, python, vi-mode, httpie, web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,9 +85,6 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="/usr/bin:$PATH"
-export PATH="/home/$USER/.cargo/bin/:$PATH"
-export PATH="/home/$USER/bin/:$PATH"
 
 alias R='/usr/bin/R'
 stty -ixon
@@ -108,22 +105,21 @@ else
 	print "404: my local aliases not found."
 fi
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc' ]; then source '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/gui/Documents/other/aws_recognition_study/google-cloud-sdk/completion.zsh.inc'; fi
-
-# export PYTHONPATH=$PYTHONPATH:/usr/lib/python37.zip:/usr/lib/python3.7:/usr/lib/python3.7/lib-dynload:/usr/lib/python3.7/site-packages
+export EDITOR=vim
 
 # pyenv stuff
 export PATH="/home/gui/.pyenv/bin:$PATH"
+
+# [ -x "` which pyenv `" ] && 
 eval "$(pyenv init -)"
+# [ -x "` which pyenv `" ] &&
 eval "$(pyenv virtualenv-init -)"
-eval "$(pipenv --completion)"
-#export PIPENV_PYTHON=/home/gui/.pyenv/shims/python
-# nvm config
+# [ -x "` which pipenv `" ] && eval "$(pipenv --completion)"
+
+# path stuff
+export PATH="$PATH:/usr/bin"
+export PATH="/home/$USER/.cargo/bin/:$PATH"
+export PATH="/home/$USER/bin/:$PATH"
 
 # Set up Node Version Manager
 export NVM_DIR="$HOME/.nvm"                            # You can change this if you want.
@@ -131,8 +127,6 @@ export NVM_SOURCE="/usr/share/nvm"                     # The AUR package install
 [ -s "$NVM_SOURCE/nvm.sh" ] && . "$NVM_SOURCE/nvm.sh"  # Load NVM
 
 # FZF configs
-
-##export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
@@ -146,4 +140,7 @@ fi
 export FZF_DEFAULT_OPTS='--height=40% --preview="cat {}" --preview-window=right:60%:wrap'
 export FZF_DEFAULT_COMMAND='rg --files ~'
 
-source $HOME/.poetry/env
+bindkey -e 
+
+
+

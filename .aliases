@@ -4,8 +4,6 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias v="vim"
 alias sv="sudo vim"
 alias vcfg="vim ~/.vimrc"
-alias vma="vim ~/.dotfiles/.aliases"
-alias vla="vim ~/.local_aliases"
 alias vma='vim -c ":set syntax=sh" ~/.dotfiles/.aliases'
 alias vla='vim -c ":set syntax=sh" ~/.local_aliases'
 
@@ -24,7 +22,7 @@ alias cd..='cd ..'
 
 alias vh='vim .'
 alias dfd='cd ~/.dotfiles'
-alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
+alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="qt"'
 alias g=git
 
 alias ff='fzf-tmux'

@@ -152,5 +152,3 @@ let g:vimwiki_list = [{'path': '~/gui_kb/',  'syntax':'markdown', 'ext': '.md'}]
 " BLACK CONFIG
 """""""""""""""""""""""""""""""""""""""
 let g:black_linelength = 88
-nnoremap <F9> :Black<CR>
-
