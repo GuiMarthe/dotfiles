@@ -22,7 +22,7 @@ call vundle#begin()
 	Plugin 'itchyny/lightline.vim'
 	Plugin 'psf/black'
 	Plugin 'Vimjas/vim-python-pep8-indent'
-        Plugin 'junegunn/fzf.vim'
+    Plugin 'junegunn/fzf.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Provides tab-completion for all file-related tasks
