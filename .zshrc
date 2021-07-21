@@ -5,10 +5,25 @@ stty -ixon
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 ### History for commands
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory
+export HISTFILE=~/.histfile
+export HISTFILESIZE=10000000
+export HISTSIZE=1000000
+setopt HIST_FIND_NO_DUPS
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+
+## Completion
+
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
 
 ### Up arrow partial matching completion
 autoload -U up-line-or-beginning-search
@@ -18,7 +33,6 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '^[[Z' reverse-menu-complete
-
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
@@ -30,7 +44,7 @@ zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-dir
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path $ZSH_CACHE_DIR
 autoload -U compinit; compinit
-
+autoload -U +X bashcompinit && bashcompinit
 
 
 #### My aliases

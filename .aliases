@@ -2,13 +2,12 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 alias vim='nvim'
 alias v="vim"
-alias sv="sudo vim"
+alias sv="sudoedit"
 alias vcfg='vim -c ":set syntax=vim" ~/.config/nvim/init.vim'
-alias vma='vim -c ":set syntax=sh" ~/dotfiles/.aliases'
-alias vla='vim -c ":set syntax=sh" ~/.local_aliases'
+alias vma='vim -c ":set filetype=bash" ~/dotfiles/.aliases'
+alias vla='vim -c ":set filetype=bash" ~/.local_aliases'
 
 alias rstudio='rstudio-bin'
-
 alias rs="rstudio . &>/dev/null &"
 
 alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"
@@ -19,27 +18,24 @@ alias ttt='tree . -L 2'
 alias tttt='tree . -L 3'
 
 alias cd..='cd ..'
+alias ..='cd ..'
 
 alias vh='vim .'
 alias dfd='cd ~/dotfiles'
-alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="qt"'
+alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
 alias g=git
-
-alias ff='fzf-tmux'
-alias f='fzf'
 
 alias cp="cp -i"                          
 alias df='df -h'                          
 alias free='free -m'                      
 alias more=less
 alias ls='ls --color=auto'
+alias ll='ls -la --group-directories-first'
+alias l='ls -l --group-directories-first --human-readable'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
 
-alias ll='ls -la --group-directories-first'
-
-alias l='ls -l --group-directories-first --human-readable'
 alias pac-search="pacman -Slq | fzf -m --preview 'pacman -Si {1}'"
 
 alias zshconfig='vim .zshrc'

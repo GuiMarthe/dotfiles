@@ -3,21 +3,22 @@
 	email = gui.marthe@gmail.com
 [alias]
 	lalias = config --get-regexp alias
-        st = status
-        ci = commit --verbose
-        co = checkout
-        di = diff
-        dt = diff --staged
-        amend = commit --amend
-        aa = add --all
+    st = status
+    ci = commit --verbose
+    co = checkout
+    di = diff
+    dt = diff --staged
+    amend = commit --amend
+    aa = add --all
 	ap = add --all -p
-        ; ff = merge --ff-only
-        ; noff = merge --no-ff
-        fa = fetch --all
-        ; pom = push origin master
-        ds = diff --stat=160,120
-        dh1 = diff HEAD~1
+    ; ff = merge --ff-only
+    ; noff = merge --no-ff
+    fa = fetch --all
+    ; pom = push origin master
+    ds = diff --stat=160,120
+    dh1 = diff HEAD~1
 	unstage = reset HEAD --
+    plog = log --pretty=oneline --graph --parents --abbrev-commit
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

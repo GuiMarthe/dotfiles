@@ -15,6 +15,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'   
 call plug#end()
 
 filetype indent off
@@ -90,11 +92,12 @@ let g:netrw_banner = 0
 let g:loaded_python_provider = 0 "NO python2
 let g:python3_host_prog = '/home/gui/.pyenv/versions/py3nvim/bin/python'
 
-let g:sqlfmt_command = "sqlfmt"
-let g:sqlfmt_options = ""
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = "-r -k upper"
+let g:sqlfmt_auto = 0
 
 " Nice little way to save and save+exit
-map Z :w! <CR>
+map Z :w! <CR>: echo "Saved"<CR>
 map ZX :wq <CR>
 
 " Better code indentation
@@ -125,7 +128,7 @@ vnoremap <leader>d "_d
 """""""""""""""""""""""""""""""""""""""
 " NAVIGATING WITH GUIDES
 """""""""""""""""""""""""""""""""""""""
-inoremap <tab><tab> <esc>/<++><enter>"_c4l
+inoremap <tab><tab> <esc>/<enter>"_c4l
 vnoremap <tab><tab> <esc>/<++><enter>"_c4l
 map <tab><tab> <esc>/<++><enter>"_c4l
 inoremap <leader>gui <++>
@@ -147,6 +150,7 @@ endf
 " AU COMMANDS
 """"""""""""""""""""""""""""""""""""""
 
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 
 """""""""""""""""""""""""""""""""""""""
@@ -170,21 +174,59 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 inoremap <leader>time <Esc>:InsertTime<cr>
 inoremap <leader>date <Esc>a<c-r>=strftime('%F')<cr>
 
-
-"""""""""""""""""""""""""""""""""""""""
-" LSP MAPS
-"""""""""""""""""""""""""""""""""""""""
-lua require('lspconfig').jedi_language_server.setup{}
-highlight Pmenu ctermbg=black ctermfg=white guibg=#5f5fff
-
-nnoremap <c-]> :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>ref :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>vh :lua vim.lsp.buf.signature_help())<CR>
-
 """""""""""""""""""""""""""""""""""""""
 " TELESCOPE
 """""""""""""""""""""""""""""""""""""""
-nnoremap <leader>fw :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <leader>f :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>n <cmd>lua require('telescope.builtin').buffers()<CR>
+
+"""""""""""""""""""""""""""""""""""""""
+" TREESITTER 
+"""""""""""""""""""""""""""""""""""""""
+" there should be a better way of doing this
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim 
+      lookahead = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+  },
+}
+EOF
+
+
 
 
