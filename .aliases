@@ -39,3 +39,8 @@ alias fgrep='fgrep --colour=auto'
 alias pac-search="pacman -Slq | fzf -m --preview 'pacman -Si {1}'"
 
 alias zshconfig='vim .zshrc'
+
+alias sinfo="uname -sr && uptime| sed 's/ //' && sensors|grep Pack && \
+             lscpu|grep 'CPU MHz:' && acpi && \
+             echo -n 'Memory in use: ' && free -m|grep Mem|\
+             awk '{print \$3+\$5\" megs\"}'"
