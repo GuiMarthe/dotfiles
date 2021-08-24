@@ -99,7 +99,6 @@ function steeef_precmd {
     fi
 }
 add-zsh-hook precmd steeef_precmd
-
-PROMPT=$'
-%{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}
- %{%F{red}%}λ%{%F{white}%} '
+NEWLINE=$'\n'
+OLD_PROMPT=$' %{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%3~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}${NEWLINE}%{%F{red}%} λ%{%F{white}%} '
+PROMPT=$' %{$limegreen%}%3~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}${NEWLINE}%{%F{red}%} λ%{%F{white}%} '
