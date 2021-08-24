@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'   
 call plug#end()
 
@@ -87,6 +87,8 @@ let g:netrw_liststyle = 3
 let g:netrw_preview = 1
 let g:netrw_winsize = 30
 let g:netrw_banner = 0
+let g:netrw_keepdir=0
+let g:netrw_banner=0
 
 "python env configurations
 let g:loaded_python_provider = 0 "NO python2
@@ -186,7 +188,6 @@ nnoremap <leader>n <cmd>lua require('telescope.builtin').buffers()<CR>
 """""""""""""""""""""""""""""""""""""""
 " there should be a better way of doing this
 
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   textobjects = {
@@ -227,6 +228,14 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+"""""""""""""""""""""""""""""""""""""""
+" COLOR SETTINGS 
+"""""""""""""""""""""""""""""""""""""""
+highlight Pmenu ctermbg=black ctermfg=white guibg=#5f5fff
 
 
-
+"""""""""""""""""""""""""""""""""""""""
+" NETRW INTERACTION
+"""""""""""""""""""""""""""""""""""""""
+nnoremap <C-e> :Lex <CR>
+nnoremap <leader>re :let @/=expand("%:t") <Bar> execute ':Lex' expand("%:h") <CR>

@@ -34,7 +34,6 @@ inoremap <Leader>pr print(<++>)<Esc>Fp
 """""""""""""""""""""""""""""""""""""""
 
 lua require('lspconfig').jedi_language_server.setup{}
-highlight Pmenu ctermbg=black ctermfg=white guibg=#5f5fff
 
 au FileType python nnoremap <buffer> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 au FileType python nnoremap <buffer> <leader>ref <cmd>lua vim.lsp.buf.references()<CR>
