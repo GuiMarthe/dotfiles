@@ -1,0 +1,42 @@
+
+call plug#begin('~/.vim/plugged')
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-commentary'
+	" Plug 'michaeljsmith/vim-indent-object'
+	Plug 'vim-scripts/ReplaceWithRegister'
+	Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
+	Plug 'psf/black', {'for': 'python'}
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for':'python'}
+    Plug 'b4b4r07/vim-sqlfmt', {'for': 'sql'}
+    Plug 'jackc/sqlfmt', {'for': 'sql'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'   
+    Plug 'ayu-theme/ayu-vim' 
+call plug#end()
+
+syntax on
+filetype plugin indent on
+
+let mapleader = ","
+
+"python env configurations
+let g:loaded_python_provider = 0 "NO python2
+let g:python3_host_prog = '/home/gui/.pyenv/versions/py3nvim/bin/python'
+
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = "-r -k upper"
+let g:sqlfmt_auto = 0
+
+
+""""""""""""""""""""""""""""""""""""""
+" AU COMMANDS
+""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
+
+

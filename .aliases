@@ -3,7 +3,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias vim='nvim'
 alias v="vim"
 alias sv="sudoedit"
-alias vcfg='vim -c ":set syntax=vim" ~/.config/nvim/init.vim'
+alias vcfg='vim ~/.config/nvim/init.vim'
 alias vma='vim -c ":set filetype=bash" ~/dotfiles/.aliases'
 alias vla='vim -c ":set filetype=bash" ~/.local_aliases'
 
