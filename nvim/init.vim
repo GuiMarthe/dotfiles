@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-commentary'
-	" Plug 'michaeljsmith/vim-indent-object'
 	Plug 'vim-scripts/ReplaceWithRegister'
 	Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 	Plug 'psf/black', {'for': 'python'}
@@ -16,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'   
+    Plug 'nvim-treesitter/playground'
     Plug 'ayu-theme/ayu-vim' 
 call plug#end()
 
