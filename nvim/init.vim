@@ -14,9 +14,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'   
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
-    Plug 'ayu-theme/ayu-vim' 
+    Plug 'ayu-theme/ayu-vim'
+    Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 call plug#end()
 
 syntax on
