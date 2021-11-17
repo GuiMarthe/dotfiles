@@ -9,3 +9,7 @@ or what network manager, notification deamon etc... I have a short memory, lol.
 - notifications: [dunst](https://wiki.archlinux.org/title/Dunst)
 - menu: [dmenu](https://wiki.archlinux.org/title/dmenu)
 - window-manager: [dwm](https://wiki.archlinux.org/title/Dwm)
+- image viwer: [feh](https://wiki.archlinux.org/title/feh)
+- tablet as waycon tablet: [weylus](https://github.com/H-M-H/Weylus)
+- mirror tablet to screen: [UxPlay](https://github.com/antimof/UxPlay)
+- screen anotating: [ardesia](https://github.com/gfreeau/ardesia) (Still trying to get this to work)

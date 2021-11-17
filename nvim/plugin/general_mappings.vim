@@ -26,6 +26,7 @@ vnoremap <leader>p "_dP
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 nnoremap <leader>Y gg"*yG
+nnoremap Y y$
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -78,3 +79,9 @@ map <leader>s :call RenameFile()<cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 inoremap <leader>time <Esc>:InsertTime<cr>
 inoremap <leader>date <Esc>a<c-r>=strftime('%F')<cr>
+
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END

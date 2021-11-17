@@ -1,0 +1,18 @@
+
+# increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    XF86AudioRaiseVolume
+
+# decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+   XF86AudioLowerVolume
+
+# mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioMute
+
+# "xvkbd -xsendevent -text "\S\[Insert]" > /dev/null 2> /dev/null"
+
+#noinsertpaste
+"xvkbd -no-jump-pointer -xsendevent -text "\D1`xsel -k`" 2>/dev/null"
+   XF86Tools
