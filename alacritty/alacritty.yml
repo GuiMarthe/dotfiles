@@ -49,7 +49,6 @@ colors: &nord
     cyan: '#6d96a5'
     white: '#aeb3bb'
 
-# Colors (Ayu Dark)
 colors: &ayudark
   # Default colors
   primary:
@@ -74,7 +73,6 @@ colors: &ayudark
     cyan: '#95E6CB'
     white: '#FFFFFF'
       
-# Colors (ayu_light)
 colors: &ayulight
   primary:
     background: '0xfafafa'
@@ -104,7 +102,6 @@ colors: &ayulight
     cyan:    '0x7ff1cb'
     white:   '0xffffff'
 
-# Colors (Ayu Mirage)
 colors: &ayumirage
   # Default colors
   primary:
@@ -133,7 +130,6 @@ colors: &ayumirage
     cyan: '#95E6CB'
     white: '#FFFFFF'
 
-# Colors (Gruvbox Material Dark Medium)
 colors: &gruvbox
   primary:
     background: '0x282828'
@@ -159,7 +155,6 @@ colors: &gruvbox
     cyan:    '0x89b482'
     white:   '0xdfbf8e'
 
-# Colors (Base16 Default Dark)
 
 colors: &base64
   # Default colors
