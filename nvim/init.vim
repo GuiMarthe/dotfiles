@@ -18,6 +18,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-treesitter/playground'
     Plug 'ayu-theme/ayu-vim'
     Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+    Plug 'slarwise/vim-tmux-send'
+    Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 syntax on
