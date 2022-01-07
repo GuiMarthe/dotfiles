@@ -34,8 +34,4 @@ inoremap <Leader>pr print(<++>)<Esc>Fp
 """""""""""""""""""""""""""""""""""""""
 
 
-au FileType python nnoremap <buffer> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-au FileType python nnoremap <buffer> <leader>ref <cmd>lua vim.lsp.buf.references()<CR>
-au FileType python nnoremap <buffer> <leader>vh <cmd>lua vim.lsp.buf.signature_help()<CR>
-autocmd FileType python setlocal omnifunc=v:lua.vim.lsp.omnifunc "" Ctrl-x Ctrl-o completion
 "autocmd BufWritePre,BufRead *.py :silent Black

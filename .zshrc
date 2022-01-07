@@ -72,5 +72,5 @@ eval "$(pyenv virtualenv-init -)"
 bindkey -v
 bindkey "^?" backward-delete-char
 
-
-
+export GOPATH="/home/$USER/go:$GOPATH"
+export GOROOT=/usr/local/go

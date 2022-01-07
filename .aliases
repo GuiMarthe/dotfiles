@@ -22,7 +22,9 @@ alias ..='cd ..'
 
 alias vh='vim .'
 alias dfd='cd ~/dotfiles'
+alias dfdv='cd ~/dotfiles/nvim'
 alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
+alias kipy='kedro ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
 alias g=git
 
 alias cp="cp -i"                          
@@ -38,7 +40,7 @@ alias fgrep='fgrep --colour=auto'
 
 alias pac-search="pacman -Slq | fzf -m --preview 'pacman -Si {1}'"
 
-alias zshconfig='vim .zshrc'
+alias zshconfig='vim ~/.zshrc'
 
 alias sinfo="uname -sr && uptime| sed 's/ //' && sensors|grep Pack && \
              lscpu|grep 'CPU MHz:' && acpi && \
