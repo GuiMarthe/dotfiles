@@ -7,7 +7,7 @@ alias vcfg='vim ~/.config/nvim/init.vim'
 alias vma='vim -c ":set filetype=bash" ~/dotfiles/.aliases'
 alias vla='vim -c ":set filetype=bash" ~/.local_aliases'
 
-alias rstudio='rstudio-bin'
+alias rstudio='rstudio'
 alias rs="rstudio . &>/dev/null &"
 
 alias mka="cookiecutter ~/.cookiecutters/cookiecutter-data-science/"

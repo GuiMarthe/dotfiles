@@ -183,4 +183,4 @@ colors: &base64
     cyan:    '#86c1b9'
     white:   '#f8f8f8'
 
-colors: *ayudark
+colors: *ayumirage
