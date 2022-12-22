@@ -26,7 +26,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- go to last edited file
-vim.keymap.set("n",  '<Leader><Leader>',  '<c-^>')
+vim.keymap.set("n",  '<leader><leader>',  '<c-^>')
 
 -- make leader yank, delete, paste not overwrite the register
 -- I like replace with register for some use-cases though
