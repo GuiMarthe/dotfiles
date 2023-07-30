@@ -24,13 +24,13 @@ setopt complete_in_word
 setopt always_to_end
 
 ## Up arrow partial matching completion
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
-bindkey '^[[Z' reverse-menu-complete
+bindkey -v "^[[A" up-line-or-beginning-search 
+bindkey -v "^[[B" down-line-or-beginning-search
+bindkey -v '^[[Z' reverse-menu-complete
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
@@ -63,11 +63,11 @@ export PAGER=less
 export MANPAGER='nvim +Man!'
 
 # pyenv stuff
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$HOME/go/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$HOME/go/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 bindkey -v
 bindkey "^?" backward-delete-char
@@ -78,3 +78,7 @@ export GOROOT=/usr/local/go
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export TERMINFO_DIRS=${TERMINFO_DIRS+$TERMINFO_DIRS:}$HOME/.terminfo
+
+eval "$(direnv hook zsh)"

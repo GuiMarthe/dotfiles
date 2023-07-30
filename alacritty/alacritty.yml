@@ -1,3 +1,10 @@
+shell:
+  program: /Users/guilherme.marthe/.nix-profile/bin/tmux
+
+size: 35.0
+
+env:
+  TERM: alacritty
 
 # Nord (best theme)
 colors: &nord
@@ -18,7 +25,7 @@ colors: &nord
     matches:
       foreground: CellBackground
       background: '#88c0d0'
-    bar:
+    footer_bar:
       background: '#434c5e'
       foreground: '#d8dee9'
   normal:
@@ -183,4 +190,4 @@ colors: &base64
     cyan:    '#86c1b9'
     white:   '#f8f8f8'
 
-colors: *ayumirage
+colors: *ayudark
