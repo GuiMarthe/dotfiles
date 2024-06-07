@@ -10,11 +10,11 @@ endfunction
 
 command! ProseMode call ProseMode()
 " Simple mapping for prose mode
-	
+
 " Simple toggle for spelling
 map <F6> :setlocal spell! spelllang=en_us,pt_br,pt<CR>
 
-" Use the zg command to its good words dictionary. 
+" Use the zg command to its good words dictionary.
 " zw will add a word to the wrong words dictionary.
 " z= will offer a completion list. Press a number to correcr the word
 " [s will go to the next wrong word

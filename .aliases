@@ -32,7 +32,7 @@ alias df='df -h'
 alias free='free -m'                      
 alias more=less
 alias ls='ls --color=auto'
-alias ll='ls -la --group-directories-first'
+alias ll='ls -lah --group-directories-first'
 alias l='ls -l --group-directories-first --human-readable'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'

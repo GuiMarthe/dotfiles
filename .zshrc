@@ -75,10 +75,18 @@ bindkey "^?" backward-delete-char
 export GOPATH="/home/$USER/go:$GOPATH"
 export GOROOT=/usr/local/go
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 
 export TERMINFO_DIRS=${TERMINFO_DIRS+$TERMINFO_DIRS:}$HOME/.terminfo
 
 eval "$(direnv hook zsh)"
+
+if [ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+	source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
