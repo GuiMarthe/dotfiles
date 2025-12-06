@@ -10,3 +10,4 @@ done
 
 ln -svf "${dir_df}/nvim"/ "${HOME}/.config/"
 ln -svf "${dir_df}/alacritty"/ "${HOME}/.config/"
+ln -svf "${dir_df}/aerospace"/ "${HOME}/.config/"

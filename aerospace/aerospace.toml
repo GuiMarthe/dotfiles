@@ -1,0 +1,171 @@
+# Aerospace Configuration File
+# Location: ~/.aerospace.toml or ~/.config/aerospace/aerospace.toml
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations - recommended to keep these enabled
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Set default layouts
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Key mapping
+[key-mapping]
+preset = 'qwerty'
+
+# Gaps configuration
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
+
+# Main mode bindings - Using Alt (Option) as super key
+[mode.main.binding]
+
+# Focus windows
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Resize mode
+alt-r = 'mode resize'
+
+# Layout toggles
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# Float/tile toggle
+alt-shift-space = 'layout floating tiling'
+
+# Fullscreen with Alt+Enter
+alt-enter = 'fullscreen'
+
+# Original fullscreen binding
+alt-f = 'fullscreen'
+
+# Swap between last two focused windows with Alt+Space
+alt-space = 'focus-back-and-forth'
+
+# Move window to other monitor with Alt+Shift+Comma (<)
+alt-shift-comma = 'move-node-to-monitor --wrap-around next'
+
+# Balance windows
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+# Reload config
+alt-shift-c = 'reload-config'
+
+# Workspace navigation - numbers
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+# Workspace navigation - letters
+alt-a = 'workspace A'
+alt-q = 'workspace Q'
+alt-e = 'workspace E'
+alt-d = 'workspace D'
+alt-z = 'workspace Z'
+alt-x = 'workspace X'
+
+# Move windows to workspaces - numbers
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
+
+# Move windows to workspaces - letters
+alt-shift-a = 'move-node-to-workspace A'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-e = 'move-node-to-workspace E'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-z = 'move-node-to-workspace Z'
+alt-shift-x = 'move-node-to-workspace X'
+
+# Resize mode bindings
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+# ============================================
+# App-to-workspace assignments (CORRECTED!)
+# ============================================
+
+# Workspace 1: RStudio and Zed
+[[on-window-detected]]
+if.app-id = 'com.rstudio.desktop'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace 1'
+
+# Workspace 2: Zen Browser
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace 2'
+
+# Workspace A: Alacritty
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
+run = 'move-node-to-workspace A'
+
+# Workspace E: WhatsApp
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace E'
+
+# Workspace Q: OmniFocus and BusyCal
+[[on-window-detected]]
+if.app-id = 'com.omnigroup.OmniFocus4'
+run = 'move-node-to-workspace Q'
+
+[[on-window-detected]]
+if.app-id = 'com.busymac.busycal3'
+run = 'move-node-to-workspace Q'
+
+# Workspace Z: Zotero
+[[on-window-detected]]
+if.app-id = 'org.zotero.zotero'
+run = 'move-node-to-workspace Z'
+
+# Workspace D: DataGrip
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.datagrip'
+run = 'move-node-to-workspace D'
+
+# Workspace X: Claude
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace X'

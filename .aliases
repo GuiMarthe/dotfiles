@@ -24,7 +24,6 @@ alias vh='vim .'
 alias dfd='cd ~/dotfiles'
 alias dfdv='cd ~/dotfiles/nvim'
 alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
-alias kipy='kedro ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
 alias g=git
 
 alias cp="cp -i"                          
@@ -32,7 +31,7 @@ alias df='df -h'
 alias free='free -m'                      
 alias more=less
 alias ls='ls --color=auto'
-alias ll='ls -la --group-directories-first'
+alias ll='ls -la'
 alias l='ls -l --group-directories-first --human-readable'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
