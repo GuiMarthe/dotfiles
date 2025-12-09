@@ -13,7 +13,7 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups # ignore duplication command history list
 setopt hist_ignore_space
 setopt hist_verify
-setopt share_history # share 
+setopt share_history # share
 
 ## Completion
 
@@ -24,8 +24,8 @@ setopt complete_in_word
 setopt always_to_end
 
 ## Up arrow partial matching completion
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey -v
@@ -33,6 +33,8 @@ bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '^[[Z' reverse-menu-complete
 
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs true
@@ -48,14 +50,14 @@ autoload -U +X bashcompinit && bashcompinit
 ## My aliases
 if [ -f ~/dotfiles/.aliases ]; then
 	source ~/dotfiles/.aliases
-else 
+else
 	print "404: my personal aliases not found."
 fi
 
 ## Local aliases
 if [ -f ~/.local_aliases ]; then
 	source ~/.local_aliases
-else 
+else
 	print "404: my local aliases not found."
 fi
 
@@ -63,17 +65,10 @@ export EDITOR=nvim
 export PAGER=less
 export MANPAGER='nvim +Man!'
 
-bindkey "^?" backward-delete-char
-
-export GOPATH="/home/$USER/go:$GOPATH"
-export GOROOT=/usr/local/go
-
 # Load nvm (Homebrew version)
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-
 
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"

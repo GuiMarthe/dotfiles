@@ -1,9 +1,9 @@
 
 setlocal encoding=utf-8
-setlocal tabstop=4       
-setlocal shiftwidth=4    
-setlocal softtabstop=4  
-setlocal expandtab       
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal expandtab
 
 " Various error conditions.
 syn match   sqlError        ")"                 " Lonely closing paren.

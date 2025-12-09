@@ -4,8 +4,6 @@ vim.opt.clipboard:append( "unnamedplus" )
 
 vim.opt.wildmode='longest,full'
 
-
-
 vim.opt.wildignore:append '*.pyc'
 vim.opt.wildignore:append '*_build/*'
 vim.opt.wildignore:append '**/coverage/*'
@@ -14,7 +12,6 @@ vim.opt.wildignore:append '**/android/*'
 vim.opt.wildignore:append '**/ios/*'
 vim.opt.wildignore:append '**/.git/*'
 vim.opt.wildmenu = true
-
 
 vim.opt.guicursor = {}
 vim.opt.relativenumber = true
@@ -51,3 +48,6 @@ vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append 'c'
 vim.opt.completeopt = 'menu'
+vim.opt.path:append '**'
+
+

@@ -23,13 +23,13 @@ map <leader>r :Black<cr>
 
 """" code snippets
 
-inoremap <Leader>def <Esc>:-1read /home/$USER/.config/nvim/snippets/python_snippets/function_snippet.py<CR>jVk
-inoremap <Leader>class <Esc>:-1read /home/$USER/.config/nvim/snippets/python_snippets/class_snippet.py<CR>
-inoremap <Leader>main <Esc>:-1read /home/$USER/.config/nvim/snippets/python_snippets/script_snippet.py<CR>
-inoremap <Leader>tran <Esc>:-1read /home/$USER/.config/nvim/snippets/python_snippets/transformer_snippet.py<CR>
+inoremap <Leader>def <Esc>:-1read $HOME/.config/nvim/snippets/python_snippets/function_snippet.py<CR>jVk
+inoremap <Leader>class <Esc>:-1read $HOME/.config/nvim/snippets/python_snippets/class_snippet.py<CR>
+inoremap <Leader>main <Esc>:-1read $HOME/.config/nvim/snippets/python_snippets/script_snippet.py<CR>
+inoremap <Leader>tran <Esc>:-1read $HOME/.config/nvim/snippets/python_snippets/transformer_snippet.py<CR>
 inoremap <Leader>pr print(<++>)<Esc>Fp
 
 inoremap <Leader>l import ipdb;ipdb.set_trace();
 noremap <Leader>l Oimport ipdb;ipdb.set_trace();<Esc>
 
-command QfFk8 :cexpr system('flake8 src')
+command QfFk8 :cexpr system('ruff .')

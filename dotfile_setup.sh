@@ -1,6 +1,6 @@
 #!/bin/bash
 
-home_dotfiles=(".vimrc" ".tmux.conf" ".gitconfig" ".zshrc")
+home_dotfiles=(".zshrc" ".zprofile")
 
 dir_df="${HOME}/dotfiles"
 
@@ -11,3 +11,5 @@ done
 ln -svf "${dir_df}/nvim"/ "${HOME}/.config/"
 ln -svf "${dir_df}/alacritty"/ "${HOME}/.config/"
 ln -svf "${dir_df}/aerospace"/ "${HOME}/.config/"
+ln -svf "${dir_df}/tmux"/ "${HOME}/.config/"
+ln -svf "${dir_df}/git"/ "${HOME}/.config/"

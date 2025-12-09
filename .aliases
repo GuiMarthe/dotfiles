@@ -26,13 +26,13 @@ alias dfdv='cd ~/dotfiles/nvim'
 alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
 alias g=git
 
-alias cp="cp -i"                          
-alias df='df -h'                          
-alias free='free -m'                      
+alias cp="cp -i"
+alias df='df -h'
+alias free='free -m'
 alias more=less
 alias ls='ls --color=auto'
-alias ll='ls -la'
-alias l='ls -l --group-directories-first --human-readable'
+alias ll='ls -lah'
+alias l='ls -l'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
