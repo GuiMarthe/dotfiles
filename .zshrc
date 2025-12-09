@@ -63,18 +63,20 @@ export EDITOR=nvim
 export PAGER=less
 export MANPAGER='nvim +Man!'
 
-# pyenv stuff
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/bin:$HOME/go/bin:$PATH"
-#eval "$(pyenv init --path)"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-
 bindkey "^?" backward-delete-char
 
 export GOPATH="/home/$USER/go:$GOPATH"
 export GOROOT=/usr/local/go
 
+# Load nvm (Homebrew version)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+
+
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
+export PATH="$HOME/.local/bin:$PATH"

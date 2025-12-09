@@ -31,7 +31,7 @@ require('packer').startup(function(use)
   use 'ayu-theme/ayu-vim'
   use 'slarwise/vim-tmux-send'
   use {'ekalinin/Dockerfile.vim', ft = 'erfile'}
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' }}
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.8', requires = { 'nvim-lua/plenary.nvim' }}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'

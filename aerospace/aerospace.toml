@@ -28,6 +28,7 @@ outer.right = 8
 # Main mode bindings - Using Alt (Option) as super key
 [mode.main.binding]
 
+alt-shift-enter = ['fullscreen off', 'focus --boundaries-action wrap-around-the-workspace dfs-next', 'fullscreen']
 # Focus windows
 alt-h = 'focus left'
 alt-j = 'focus down'
@@ -88,6 +89,7 @@ alt-e = 'workspace E'
 alt-d = 'workspace D'
 alt-z = 'workspace Z'
 alt-x = 'workspace X'
+alt-s = 'workspace S'
 
 # Move windows to workspaces - numbers
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -108,6 +110,7 @@ alt-shift-e = 'move-node-to-workspace E'
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-z = 'move-node-to-workspace Z'
 alt-shift-x = 'move-node-to-workspace X'
+alt-shift-s = 'move-node-to-workspace S'
 
 # Resize mode bindings
 [mode.resize.binding]
@@ -117,6 +120,7 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
 
 # ============================================
 # App-to-workspace assignments (CORRECTED!)
@@ -169,3 +173,8 @@ run = 'move-node-to-workspace D'
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 run = 'move-node-to-workspace X'
+
+# Workspace S: Slack
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S'

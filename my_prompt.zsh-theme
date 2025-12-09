@@ -27,12 +27,14 @@ if [[ $terminfo[colors] -ge 256 ]]; then
     orange="%F{166}"
     purple="%F{135}"
     hotpink="%F{161}"
-    limegreen="%F{118}"
+    # Changed from bright lime green (118) to darker forest green (28) for better contrast on light backgrounds
+    limegreen="%F{28}"
 else
     turquoise="%F{cyan}"
     orange="%F{yellow}"
     purple="%F{magenta}"
     hotpink="%F{red}"
+    # For basic color support, use regular green which works on both light and dark backgrounds
     limegreen="%F{green}"
 fi
 
@@ -101,4 +103,5 @@ function steeef_precmd {
 add-zsh-hook precmd steeef_precmd
 NEWLINE=$'\n'
 OLD_PROMPT=$' %{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%3~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}${NEWLINE}%{%F{red}%} λ%{%F{white}%} '
-PROMPT=$' %{$limegreen%}%3~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}${NEWLINE}%{%F{red}%} λ%{%F{white}%} '
+# Changed the text color after λ from white (%F{white}) to default (%f) which adapts to terminal theme
+PROMPT=$' %{$limegreen%}%3~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)${vim_mode}${NEWLINE}%{%F{red}%} λ%{%f%} '
