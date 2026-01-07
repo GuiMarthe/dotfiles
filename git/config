@@ -1,6 +1,6 @@
 [user]
 	name = Guilherme Marthe
-	email = guilherme.marthe@rappi.com
+	email = guilhermemarthe.thoughtworks@latam.com
 	signingKey = ""
 [alias]
 	lalias = config --get-regexp alias

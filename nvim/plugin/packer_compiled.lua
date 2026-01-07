@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1764593432/share/lua/5.1/?.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1764593432/share/lua/5.1/?/init.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1764593432/lib/luarocks/rocks-5.1/?.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1764593432/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1764593432/lib/lua/5.1/?.so"
+local package_path_str = "/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1765228720/share/lua/5.1/?/init.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?.lua;/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1765228720/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/guilhermemarthe/.cache/nvim/packer_hererocks/2.1.1765228720/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end

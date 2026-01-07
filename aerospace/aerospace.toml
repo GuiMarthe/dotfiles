@@ -63,14 +63,11 @@ alt-space = 'focus-back-and-forth'
 # Move window to other monitor with Alt+Shift+Comma (<)
 alt-shift-comma = 'move-node-to-monitor --wrap-around next'
 
-# Balance windows
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-# Reload config
 alt-shift-c = 'reload-config'
 
-# Workspace navigation - numbers
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -82,7 +79,6 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
 
-# Workspace navigation - letters
 alt-a = 'workspace A'
 alt-q = 'workspace Q'
 alt-e = 'workspace E'
@@ -91,7 +87,6 @@ alt-z = 'workspace Z'
 alt-x = 'workspace X'
 alt-s = 'workspace S'
 
-# Move windows to workspaces - numbers
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -103,7 +98,6 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
-# Move windows to workspaces - letters
 alt-shift-a = 'move-node-to-workspace A'
 alt-shift-q = 'move-node-to-workspace Q'
 alt-shift-e = 'move-node-to-workspace E'
@@ -122,11 +116,10 @@ enter = 'mode main'
 esc = 'mode main'
 
 
-# ============================================
-# App-to-workspace assignments (CORRECTED!)
-# ============================================
+[[on-window-detected]]
+if.app-id = "com.apple.systempreferences"
+then = "layout floating"
 
-# Workspace 1: RStudio and Zed
 [[on-window-detected]]
 if.app-id = 'com.rstudio.desktop'
 run = 'move-node-to-workspace 1'
@@ -135,22 +128,18 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'dev.zed.Zed'
 run = 'move-node-to-workspace 1'
 
-# Workspace 2: Zen Browser
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace 2'
 
-# Workspace A: Alacritty
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace A'
 
-# Workspace E: WhatsApp
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = 'move-node-to-workspace E'
 
-# Workspace Q: OmniFocus and BusyCal
 [[on-window-detected]]
 if.app-id = 'com.omnigroup.OmniFocus4'
 run = 'move-node-to-workspace Q'
@@ -159,22 +148,31 @@ run = 'move-node-to-workspace Q'
 if.app-id = 'com.busymac.busycal3'
 run = 'move-node-to-workspace Q'
 
-# Workspace Z: Zotero
 [[on-window-detected]]
 if.app-id = 'org.zotero.zotero'
 run = 'move-node-to-workspace Z'
 
-# Workspace D: DataGrip
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.datagrip'
 run = 'move-node-to-workspace D'
 
-# Workspace X: Claude
 [[on-window-detected]]
 if.app-id = 'com.anthropic.claudefordesktop'
 run = 'move-node-to-workspace X'
 
-# Workspace S: Slack
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.app.pommaclcbfghclhalboakcipcmmndhcj'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 8'
+
