@@ -86,6 +86,7 @@ alt-d = 'workspace D'
 alt-z = 'workspace Z'
 alt-x = 'workspace X'
 alt-s = 'workspace S'
+alt-m = 'workspace M'
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -105,6 +106,7 @@ alt-shift-d = 'move-node-to-workspace D'
 alt-shift-z = 'move-node-to-workspace Z'
 alt-shift-x = 'move-node-to-workspace X'
 alt-shift-s = 'move-node-to-workspace S'
+alt-shift-m = 'move-node-to-workspace M'
 
 # Resize mode bindings
 [mode.resize.binding]
@@ -118,7 +120,7 @@ esc = 'mode main'
 
 [[on-window-detected]]
 if.app-id = "com.apple.systempreferences"
-then = "layout floating"
+run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.rstudio.desktop'
@@ -176,3 +178,6 @@ run = 'move-node-to-workspace 4'
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace 8'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace M'

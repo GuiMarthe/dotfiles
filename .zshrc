@@ -74,3 +74,8 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=/opt/homebrew/share/google-cloud-sdk/bin:"$PATH"
+
+setupdirenv() {
+  echo "source .venv/bin/activate" > .envrc
+  direnv allow
+}

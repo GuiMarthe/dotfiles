@@ -437,4 +437,10 @@ rsconnect/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/r,python,visualstudiocode,jetbrains,pycharm
+.python-version
+
+Claude.md
+
+**/.claude/settings.local.json
+
+tmux/plugins

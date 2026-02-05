@@ -36,14 +36,24 @@ require('mason-lspconfig').setup({
         -- Default handler for all servers
         lsp_zero.default_setup,
         
-        -- Custom handler for lua_ls to fix 'vim' global warning
+        -- Custom handler for lua_ls for Neovim Lua development
         lua_ls = function()
             require('lspconfig').lua_ls.setup({
                 settings = {
                     Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
+                        },
                         diagnostics = {
-                            globals = { 'vim' }
-                        }
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true),
+                            checkThirdParty = false,
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
                     }
                 }
             })
@@ -76,7 +86,6 @@ cmp.setup({
 -- Diagnostic configuration
 vim.diagnostic.config({
     virtual_text = true,
-    signs = true,
     update_in_insert = false,
     underline = true,
     severity_sort = true,
@@ -84,11 +93,24 @@ vim.diagnostic.config({
         border = 'rounded',
         source = 'always',
     },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = 'E',
+            [vim.diagnostic.severity.WARN] = 'W',
+            [vim.diagnostic.severity.INFO] = 'I',
+            [vim.diagnostic.severity.HINT] = 'H',
+        },
+        texthl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        },
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        },
+    },
 })
-
--- Custom diagnostic signs (optional)
-local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
