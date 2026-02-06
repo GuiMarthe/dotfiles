@@ -444,3 +444,9 @@ Claude.md
 **/.claude/settings.local.json
 
 tmux/plugins
+
+
+.claude/*
+
+
+ai_documents/*
