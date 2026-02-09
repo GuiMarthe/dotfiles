@@ -77,9 +77,52 @@ require("lazy").setup({
       'rafamadriz/friendly-snippets',
     }
   },
-  { 'rose-pine/neovim', name = 'rose-pine', config = function() vim.cmd('colorscheme rose-pine') end },
+  { 'rose-pine/neovim', name = 'rose-pine' },
+  'sainnhe/gruvbox-material',
   { "quarto-dev/quarto-nvim", dependencies = { "jmbuhr/otter.nvim", "nvim-treesitter/nvim-treesitter", },
   },
 })
 
-vim.cmd.colorscheme('rose-pine')
+-- Dark/light mode support: reads ~/.theme-mode and watches for changes
+local function apply_theme(mode)
+  if mode == "light" then
+    vim.o.background = "light"
+    vim.cmd.colorscheme("gruvbox-material")
+  else
+    vim.cmd.colorscheme("rose-pine")
+  end
+end
+
+local function read_theme_mode()
+  local f = io.open(vim.fn.expand("~/.theme-mode"), "r")
+  if f then
+    local mode = f:read("*l")
+    f:close()
+    return (mode and mode:match("^%s*(.-)%s*$")) or "dark"
+  end
+  return "dark"
+end
+
+-- Apply theme on startup
+apply_theme(read_theme_mode())
+
+-- Watch ~/.theme-mode for changes (event-driven, no polling)
+local theme_file = vim.fn.expand("~/.theme-mode")
+local w = vim.uv.new_fs_event()
+if w then
+  local function on_change(err)
+    if err then return end
+    w:stop()
+    apply_theme(read_theme_mode())
+    w:start(theme_file, {}, vim.schedule_wrap(on_change))
+  end
+  w:start(theme_file, {}, vim.schedule_wrap(on_change))
+end
+
+-- Manual commands
+vim.api.nvim_create_user_command("ThemeDark", function()
+  apply_theme("dark")
+end, {})
+vim.api.nvim_create_user_command("ThemeLight", function()
+  apply_theme("light")
+end, {})

@@ -1,6 +1,8 @@
+tap "cormacrelf/tap"
 tap "nikitabobko/tap"
 brew "libpng"
 brew "freetype"
+brew "cormacrelf/tap/dark-notify"
 brew "direnv"
 brew "fd"
 brew "fribidi"

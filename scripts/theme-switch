@@ -1,0 +1,81 @@
+#!/bin/bash
+# theme-switch — toggle dark/light mode for Alacritty + Neovim
+# Usage: theme-switch dark | light | toggle
+
+set -euo pipefail
+
+THEME_FILE="$HOME/.theme-mode"
+THEMES_DIR="$HOME/.config/alacritty/themes"
+
+get_current_mode() {
+  if [ -f "$THEME_FILE" ]; then
+    cat "$THEME_FILE"
+  else
+    echo "dark"
+  fi
+}
+
+set_mode() {
+  local mode="$1"
+
+  # Write mode file (triggers Neovim watcher)
+  echo "$mode" > "$THEME_FILE"
+
+  # Copy appropriate Alacritty theme (triggers Alacritty live reload)
+  if [ "$mode" = "dark" ]; then
+    cp "$THEMES_DIR/ayu-mirage.toml" "$THEMES_DIR/current.toml"
+  else
+    cp "$THEMES_DIR/gruvbox-material-light.toml" "$THEMES_DIR/current.toml"
+  fi
+
+  # Force Alacritty to reload — cp replaces the inode, so kqueue misses
+  # the change on current.toml. Touching the main config triggers a full reload.
+  touch "$HOME/.config/alacritty/alacritty.toml"
+
+  # Switch all running Neovim instances
+  switch_neovim "$mode"
+}
+
+switch_neovim() {
+  local mode="$1"
+  local cmd
+
+  if [ "$mode" = "dark" ]; then
+    cmd="colorscheme rose-pine"
+  else
+    cmd="set background=light | colorscheme gruvbox-material"
+  fi
+
+  # Find all Neovim listen sockets and send the command
+  # macOS puts them under /var/folders; Linux under /tmp or XDG_RUNTIME_DIR
+  local sockets
+  sockets=$(find /tmp /var/folders "${XDG_RUNTIME_DIR:-/dev/null}" \
+    -name '0' -path '*/nvim.*/0' -type s 2>/dev/null || true)
+
+  for sock in $sockets; do
+    nvim --server "$sock" --remote-send "<Cmd>${cmd}<CR>" 2>/dev/null || true
+  done
+}
+
+case "${1:-}" in
+  dark)
+    set_mode dark
+    ;;
+  light)
+    set_mode light
+    ;;
+  toggle)
+    current=$(get_current_mode)
+    if [ "$current" = "dark" ]; then
+      set_mode light
+    else
+      set_mode dark
+    fi
+    ;;
+  *)
+    echo "Usage: theme-switch dark | light | toggle" >&2
+    exit 1
+    ;;
+esac
+
+echo "Switched to $(cat "$THEME_FILE") mode"
