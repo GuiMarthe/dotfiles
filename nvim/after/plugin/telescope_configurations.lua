@@ -27,3 +27,4 @@ telescope.setup({
 
 -- Load fzf extension for better sorting
 telescope.load_extension("fzf")
+telescope.load_extension("zotero")

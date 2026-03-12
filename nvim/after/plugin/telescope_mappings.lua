@@ -13,6 +13,9 @@ vim.keymap.set("n", "<leader>bb", builtin.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
 
+-- Zotero
+vim.keymap.set("n", "<leader>fz", ":Telescope zotero<CR>", { desc = "Zotero references" })
+
 -- LSP
 vim.keymap.set("n", "<leader>rf", builtin.lsp_references, { desc = "LSP references" })
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "Document symbols" })

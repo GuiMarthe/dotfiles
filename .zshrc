@@ -29,6 +29,8 @@ autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey -v
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '^[[Z' reverse-menu-complete
@@ -74,6 +76,7 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=/opt/homebrew/share/google-cloud-sdk/bin:"$PATH"
+[ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 
 setupdirenv() {
   echo "source .venv/bin/activate" > .envrc

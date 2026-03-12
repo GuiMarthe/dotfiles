@@ -47,8 +47,14 @@ vim.opt.cmdheight= 2
 vim.opt.updatetime = 50
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append 'c'
-vim.opt.completeopt = 'menu'
+vim.opt.completeopt = 'menuone,noselect'
 vim.opt.path:append '**'
+
+-- Treesitter-based folding (all folds start open; use za/zc/zo to fold)
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
 
 -- Auto-reload files changed outside of Neovim
 vim.opt.autoread = true

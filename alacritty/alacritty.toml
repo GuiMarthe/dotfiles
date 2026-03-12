@@ -17,6 +17,9 @@ blur = true     # macOS/KDE Wayland only - blurs content behind window
 [font]
 size = 12.0  # Default is usually 11.25 - increase to your preference
 
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
 [[hints.enabled]]
 hyperlinks = true
 command = "open"

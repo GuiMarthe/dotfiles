@@ -43,12 +43,13 @@ require("lazy").setup({
   'vim-scripts/ReplaceWithRegister',
   'ThePrimeagen/harpoon',
   'ayu-theme/ayu-vim',
-  'slarwise/vim-tmux-send',
+  'jpalardy/vim-slime',
   { 'ekalinin/Dockerfile.vim', ft = 'dockerfile' },
   { 'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { 'jmbuhr/telescope-zotero.nvim', dependencies = { 'kkharji/sqlite.lua' } },
     },
   },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -79,7 +80,15 @@ require("lazy").setup({
   },
   { 'rose-pine/neovim', name = 'rose-pine' },
   'sainnhe/gruvbox-material',
-  { "quarto-dev/quarto-nvim", dependencies = { "jmbuhr/otter.nvim", "nvim-treesitter/nvim-treesitter", },
+  { "quarto-dev/quarto-nvim", dependencies = { "jmbuhr/otter.nvim", "nvim-treesitter/nvim-treesitter", "jpalardy/vim-slime" },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'markdown', 'quarto' },
+    opts = {
+      file_types = { 'markdown', 'quarto' },
+    },
   },
 })
 
