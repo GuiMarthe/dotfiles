@@ -49,8 +49,16 @@ require("lazy").setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      { 'jmbuhr/telescope-zotero.nvim', dependencies = { 'kkharji/sqlite.lua' } },
     },
+  },
+  { 'jalvesaq/zotcite',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('zotcite').setup({
+        zotero_db_path = vim.fn.expand('~/Zotero/zotero.sqlite'),
+        key_type = "better-bibtex",
+      })
+    end,
   },
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-textobjects',
@@ -98,7 +106,7 @@ local function apply_theme(mode)
     vim.o.background = "light"
     vim.cmd.colorscheme("gruvbox-material")
   else
-    vim.cmd.colorscheme("rose-pine")
+    vim.cmd.colorscheme("ayudark")
   end
 end
 
