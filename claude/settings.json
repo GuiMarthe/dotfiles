@@ -1,0 +1,55 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(echo:*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "Opus",
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'pane_active=$(tmux display-message -p \"#{pane_active}\" 2>/dev/null); if [ \"$pane_active\" != \"1\" ]; then osascript -e \"display notification \\\"Claude needs your approval\\\" with title \\\"Input Required\\\"\"; fi' 2>/dev/null || true",
+            "statusMessage": "Notifying...",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'pane_active=$(tmux display-message -p \"#{pane_active}\" 2>/dev/null); if [ \"$pane_active\" != \"1\" ]; then osascript -e \"display notification \\\"Claude is waiting for your input\\\" with title \\\"Ready for Response\\\"\"; fi' 2>/dev/null || true",
+            "statusMessage": "Notifying...",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "safety-net@cc-marketplace": true,
+    "posit-dev@posit-dev-skills": true,
+    "research-companion@andrehuang-research-companion": true
+  },
+  "extraKnownMarketplaces": {
+    "andrehuang-research-companion": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/andrehuang/research-companion.git"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "showClearContextOnPlanAccept": true
+}

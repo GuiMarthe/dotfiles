@@ -17,3 +17,8 @@ tags
 
 
 ./black_env
+
+# Secrets - never track
+.secrets
+*.key
+sk-ant-*

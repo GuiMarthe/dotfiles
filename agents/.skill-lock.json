@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "skills": {
+    "self-learning": {
+      "source": "philschmid/self-learning-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/philschmid/self-learning-skill.git",
+      "skillPath": "skills/self-learning/SKILL.md",
+      "skillFolderHash": "1910273b722724ad76d7e7015c7bc761c92e2200",
+      "installedAt": "2026-02-18T14:13:33.170Z",
+      "updatedAt": "2026-02-18T14:21:42.646Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-02-18T14:13:44.714Z",
+      "updatedAt": "2026-02-18T14:13:44.714Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "installedAt": "2026-02-26T16:26:03.825Z",
+      "updatedAt": "2026-02-26T16:26:03.825Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode"
+  ]
+}

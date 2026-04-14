@@ -1,4 +1,7 @@
 
+# Source secrets (API keys, tokens) - not tracked in dotfiles
+[ -f "${HOME}/.secrets" ] && source "${HOME}/.secrets"
+
 source ~/dotfiles/my_prompt.zsh-theme
 stty -ixon
 
