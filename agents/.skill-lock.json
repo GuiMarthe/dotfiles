@@ -27,6 +27,14 @@
       "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
       "installedAt": "2026-02-26T16:26:03.825Z",
       "updatedAt": "2026-02-26T16:26:03.825Z"
+    },
+    "marginaleffects": {
+      "source": "vincentarelbundock/marginaleffects-SKILL",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vincentarelbundock/marginaleffects-SKILL.git",
+      "skillPath": "skills/marginaleffects/SKILL.md",
+      "installedAt": "2026-04-27T00:00:00.000Z",
+      "updatedAt": "2026-04-27T00:00:00.000Z"
     }
   },
   "dismissed": {

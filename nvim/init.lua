@@ -43,7 +43,7 @@ require("lazy").setup({
   'tpope/vim-commentary',
   'vim-scripts/ReplaceWithRegister',
   'ThePrimeagen/harpoon',
-  'ayu-theme/ayu-vim',
+  { 'ayu-theme/ayu-vim', priority = 1000 },
   'jpalardy/vim-slime',
   { 'ekalinin/Dockerfile.vim', ft = 'dockerfile' },
   { 'nvim-telescope/telescope.nvim',
@@ -105,8 +105,9 @@ require("lazy").setup({
 local function apply_theme(mode)
   if mode == "light" then
     vim.o.background = "light"
-    vim.cmd.colorscheme("gruvbox-material")
+    vim.cmd.colorscheme("rose-pine-dawn")
   else
+    vim.o.background = "dark"
     vim.cmd.colorscheme("ayudark")
   end
 end

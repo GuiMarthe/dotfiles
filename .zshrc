@@ -47,6 +47,7 @@ zstyle ':completion:*:*:*:*:processes' command "ps -u $USERNAME -o pid,user,comm
 zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path /home/gui/.cache/zsh_cache.txt
+fpath=(~/.zsh/zsh-claudecode-completion $fpath)
 autoload -U compinit; compinit
 autoload -U +X bashcompinit && bashcompinit
 
@@ -85,3 +86,38 @@ setupdirenv() {
   echo "source .venv/bin/activate" > .envrc
   direnv allow
 }
+
+ppath() {
+  local mode="default"
+  while [[ "$1" == --* ]]; do
+    case "$1" in
+      --full) mode="full"; shift ;;
+      --file) mode="file"; shift ;;
+      *) echo "Unknown flag: $1" >&2; return 1 ;;
+    esac
+  done
+  local fullpath
+  fullpath=$(realpath "${1:-.}")
+  local result
+  case "$mode" in
+    full)
+      result="$fullpath" ;;
+    file)
+      result="file://$fullpath" ;;
+    default)
+      local git_root
+      if git_root=$(git rev-parse --show-toplevel 2>/dev/null); then
+        result="${fullpath#$git_root/}"
+      else
+        echo "Warning: not in a git repo, using full path" >&2
+        result="$fullpath"
+      fi ;;
+  esac
+  echo "$result" | tee /dev/tty | pbcopy
+}
+
+# Added by codeen install
+export PATH="/Users/guilhermemarthe/.local/bin/codeen:$PATH"
+
+# Private, untracked zsh config (provider wrappers, machine-specific funcs)
+[ -f ~/dotfiles/.zshrc.private ] && source ~/dotfiles/.zshrc.private

@@ -1,8 +1,30 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(awk:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:quarto.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:gist.github.com)",
+      "WebFetch(domain:gist.githubusercontent.com)",
+      "WebFetch(domain:docs.claude.com)",
+      "Read(path:/Users/guilhermemarthe/dotfiles/**)",
+      "Edit(path:/Users/guilhermemarthe/dotfiles/**)",
+      "Write(path:/Users/guilhermemarthe/dotfiles/**)",
+      "Read(path:/Users/guilhermemarthe/.claude/**)",
+      "Edit(path:/Users/guilhermemarthe/.claude/**)",
+      "Write(path:/Users/guilhermemarthe/.claude/**)",
+      "Read(path:/Users/guilhermemarthe/.agents/**)",
+      "Edit(path:/Users/guilhermemarthe/.agents/**)",
+      "Write(path:/Users/guilhermemarthe/.agents/**)"
     ],
     "defaultMode": "default"
   },
@@ -40,7 +62,10 @@
     "gitlab@claude-plugins-official": true,
     "safety-net@cc-marketplace": true,
     "posit-dev@posit-dev-skills": true,
-    "research-companion@andrehuang-research-companion": true
+    "research-companion@andrehuang-research-companion": true,
+    "quarto@posit-dev-skills": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "obsidian@obsidian-skills": true
   },
   "extraKnownMarketplaces": {
     "andrehuang-research-companion": {
@@ -48,8 +73,16 @@
         "source": "git",
         "url": "https://github.com/andrehuang/research-companion.git"
       }
+    },
+    "obsidian-skills": {
+      "source": {
+        "source": "github",
+        "repo": "kepano/obsidian-skills"
+      }
     }
   },
   "effortLevel": "medium",
-  "showClearContextOnPlanAccept": true
+  "showClearContextOnPlanAccept": true,
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }

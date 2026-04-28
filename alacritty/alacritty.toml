@@ -26,6 +26,7 @@ command = "open"
 binding = { key = "O", mods = "Control|Shift" }
 post_processing = true
 mouse.enabled = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s{-}\\^⟨⟩`]+"
 
 [[keyboard.bindings]]
 key = "Return"

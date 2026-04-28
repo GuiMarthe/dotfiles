@@ -25,12 +25,15 @@ set_mode() {
   if [ "$mode" = "dark" ]; then
     cp "$THEMES_DIR/ayu-mirage.toml" "$THEMES_DIR/current.toml"
   else
-    cp "$THEMES_DIR/gruvbox-material-light.toml" "$THEMES_DIR/current.toml"
+    cp "$THEMES_DIR/rose-pine-dawn.toml" "$THEMES_DIR/current.toml"
   fi
 
   # Force Alacritty to reload — cp replaces the inode, so kqueue misses
   # the change on current.toml. Touching the main config triggers a full reload.
   touch "$HOME/.config/alacritty/alacritty.toml"
+
+  # Reload tmux status bar colors
+  tmux source-file ~/.config/tmux/tmux.conf 2>/dev/null || true
 
   # Switch all running Neovim instances
   switch_neovim "$mode"
@@ -43,7 +46,7 @@ switch_neovim() {
   if [ "$mode" = "dark" ]; then
     cmd="colorscheme rose-pine"
   else
-    cmd="set background=light | colorscheme gruvbox-material"
+    cmd="set background=light | colorscheme rose-pine-dawn"
   fi
 
   # Find all Neovim listen sockets and send the command
