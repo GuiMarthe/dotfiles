@@ -23,7 +23,7 @@ autoload -Uz vcs_info
 
 #use extended color palette if available
 if [[ $terminfo[colors] -ge 256 ]]; then
-    turquoise="%F{81}"
+    turquoise="%F{66}"
     orange="%F{166}"
     purple="%F{135}"
     hotpink="%F{161}"

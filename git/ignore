@@ -439,17 +439,16 @@ rsconnect/
 
 .python-version
 
-Claude.md
-
 **/.claude/settings.local.json
 
 tmux/plugins
 
-
-.claude/*
-
-
 ai_documents/*
 
-
 lol.py
+
+CLAUDE.local.md
+
+tasks/
+
+.claude/

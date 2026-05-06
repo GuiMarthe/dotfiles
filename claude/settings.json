@@ -16,6 +16,9 @@
       "WebFetch(domain:gist.github.com)",
       "WebFetch(domain:gist.githubusercontent.com)",
       "WebFetch(domain:docs.claude.com)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(tree:*)",
       "Read(path:/Users/guilhermemarthe/dotfiles/**)",
       "Edit(path:/Users/guilhermemarthe/dotfiles/**)",
       "Write(path:/Users/guilhermemarthe/dotfiles/**)",
@@ -28,7 +31,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "Opus",
+  "model": "opus[1m]",
   "hooks": {
     "PermissionRequest": [
       {
@@ -36,7 +39,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'pane_active=$(tmux display-message -p \"#{pane_active}\" 2>/dev/null); if [ \"$pane_active\" != \"1\" ]; then osascript -e \"display notification \\\"Claude needs your approval\\\" with title \\\"Input Required\\\"\"; fi' 2>/dev/null || true",
+            "command": "terminal-notifier -title 'Claude Code' -message 'Needs your approval' -sound default",
             "statusMessage": "Notifying...",
             "async": true
           }
@@ -48,7 +51,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'pane_active=$(tmux display-message -p \"#{pane_active}\" 2>/dev/null); if [ \"$pane_active\" != \"1\" ]; then osascript -e \"display notification \\\"Claude is waiting for your input\\\" with title \\\"Ready for Response\\\"\"; fi' 2>/dev/null || true",
+            "command": "terminal-notifier -title 'Claude Code' -message 'Ready for your input' -sound default",
             "statusMessage": "Notifying...",
             "async": true
           }
@@ -84,5 +87,12 @@
   "effortLevel": "medium",
   "showClearContextOnPlanAccept": true,
   "skipDangerousModePermissionPrompt": true,
-  "skipAutoPermissionPrompt": true
+  "theme": "light",
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/guilhermemarthe/dotfiles/claude/statusline.sh",
+    "padding": 0
+  }
 }

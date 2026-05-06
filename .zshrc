@@ -116,6 +116,22 @@ ppath() {
   echo "$result" | tee /dev/tty | pbcopy
 }
 
+# gwt <branch> [dir] — create a git worktree on a new branch.
+# dir may be relative (to cwd) or absolute. Defaults to ../<branch-basename>.
+gwt() {
+  if [[ -z "$1" ]]; then
+    echo "usage: gwt <branch> [dir]" >&2
+    return 1
+  fi
+  local branch="$1"
+  local dir="${2:-../${branch##*/}}"
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git worktree add "$dir" "$branch"
+  else
+    git worktree add -b "$branch" "$dir"
+  fi
+}
+
 # Added by codeen install
 export PATH="/Users/guilhermemarthe/.local/bin/codeen:$PATH"
 
