@@ -26,12 +26,8 @@ for cf in "${claude_files[@]}"; do
     ln -svf "${dir_df}/claude/${cf}" "${HOME}/.claude/"
 done
 
-# Agents / Skills
-mkdir -p "${HOME}/.agents"
-ln -svf "${dir_df}/agents/.skill-lock.json" "${HOME}/.agents/"
-# skills may be a real directory on first setup — remove before symlinking
-[ -d "${HOME}/.agents/skills" ] && [ ! -L "${HOME}/.agents/skills" ] && rm -rf "${HOME}/.agents/skills"
-ln -svf "${dir_df}/agents/skills" "${HOME}/.agents/"
+# Agents / Skills: managed by APM in the standalone ~/.apm repo, not dotfiles.
+# See ~/.apm (apm.yml) — run `apm install -g` to (re)generate ~/.agents/skills.
 
 # pi (pi-coding-agent) config — symlink individual entries so auth.json/sessions stay local
 mkdir -p "${HOME}/.pi/agent"
@@ -106,32 +102,8 @@ if [ -d "${pi_modes_dir}" ]; then
     done
 fi
 
-# Claude Code marketplace skills → ~/.agents/skills
-# Bridges marketplace-format plugins (posit-dev-skills, etc.) that pi-claude-plugins can't auto-discover.
-# Copies (not symlinks) skill dirs so we can sanitize YAML frontmatter for pi's strict parser.
-marketplace_dir="${HOME}/.claude/plugins/marketplaces"
-if [ -d "${marketplace_dir}" ]; then
-    while IFS= read -r skill_md; do
-        skill_dir="$(dirname "${skill_md}")"
-        skill_name="$(basename "${skill_dir}")"
-        target="${HOME}/.agents/skills/${skill_name}"
-        # Skip if already exists as a non-marketplace-copy (user-defined skill takes precedence)
-        if [ -e "${target}" ]; then
-            # Re-copy if it's one of our managed copies (has .marketplace-source marker)
-            [ -f "${target}/.marketplace-source" ] || continue
-        fi
-        # Copy skill dir and sanitize SKILL.md frontmatter
-        rm -rf "${target}"
-        cp -R "${skill_dir}" "${target}"
-        # Quote unquoted YAML description values that contain colons (breaks pi's strict parser)
-        if grep -q '^description: [^"'"'"'"'"'].*:' "${target}/SKILL.md" 2>/dev/null; then
-            # Wrap the description value in double quotes, escaping any existing double quotes
-            sed -i '' 's/^description: \(.*\)/description: "\1"/' "${target}/SKILL.md"
-        fi
-        # Mark as managed so re-runs can update it
-        echo "${skill_dir}" > "${target}/.marketplace-source"
-    done < <(find "${marketplace_dir}" -name "SKILL.md" -not -path "*/.git/*" 2>/dev/null)
-fi
+# (Claude Code marketplace-skills bridge removed — APM now owns skill delivery
+#  for both pi and Claude Code via ~/.apm. See tasks/todo.md Phase 3–5.)
 
 # Initialize theme mode file
 [ -f "${HOME}/.theme-mode" ] || echo "dark" > "${HOME}/.theme-mode"

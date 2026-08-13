@@ -16,6 +16,8 @@ brew "jpeg-turbo"
 brew "dash-mpd-cli"
 # TIFF library and utilities
 brew "libtiff"
+# Agent Package Manager — manages AI agent skills/packs in the ~/.agents repo
+brew "apm"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Intelligent archive extraction

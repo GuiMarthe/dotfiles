@@ -17,7 +17,7 @@ dotfiles/
 ├── claude/                                # Claude Code: CLAUDE.md, settings, hooks, keybindings, statusline
 ├── .claude/                               # Claude Code: project-local permission overrides
 ├── pi/                                    # pi-coding-agent: settings, extensions, modes, themes
-├── agents/                                # Shared agent skills (~/.agents/skills symlink)
+├── (agent skills)                         # NOT in dotfiles — own repo at ~/.agents (APM-managed)
 ├── git/                                   # Git config + global gitignore
 ├── yazi/                                  # File manager config
 ├── scripts/                               # theme-switch (dark/light toggle)
@@ -33,7 +33,7 @@ dotfiles/
 ./dotfile_setup.sh
 ```
 
-Symlinks everything into place: shell configs to `~`, app configs to `~/.config/`, Claude Code to `~/.claude/`, pi to `~/.pi/agent/`, agents to `~/.agents/`. Also initialises `~/.theme-mode` and patches pi-modes to avoid editor conflicts with the vim extension.
+Symlinks everything into place: shell configs to `~`, app configs to `~/.config/`, Claude Code to `~/.claude/`, pi to `~/.pi/agent/`. Also initialises `~/.theme-mode` and patches pi-modes to avoid editor conflicts with the vim extension. Agent skills are **not** handled here — they live in a standalone APM-managed repo at `~/.agents` (see below).
 
 ## Shell (Zsh)
 
@@ -141,21 +141,32 @@ Dark = Ayu Mirage. Light = Rose Pine Dawn.
   - `debug.md` — disables write/edit tools. Investigate-only: reproduce → trace → diagnose → suggest.
 - **AGENTS.md**: Claude Code's CLAUDE.md is symlinked as pi's AGENTS.md — same system prompt for both agents.
 
-### Shared Agent Skills (`agents/skills/`)
+### Shared Agent Skills — standalone repo at `~/.agents` (APM-managed)
 
-Symlinked to `~/.agents/skills`. 24 skills covering:
+Skills live in their **own git repo at `~/.agents`** (not in dotfiles), managed by
+[APM](https://microsoft.github.io/apm/) (`brew install apm`). 82 skills total.
 
-| Category | Skills |
-|----------|--------|
-| **Research** | lit-search, paper-read, research-companion, research-session, weekly-review |
-| **Coding** | py, tdd, diagnose, prototype, improve-codebase-architecture |
-| **Planning** | grill-me, grill-with-docs, to-issues, to-prd, triage, orchestrate |
-| **Productivity** | kourosh-dini-omnifocus, obsidian-vault, career-coach, handoff |
-| **Meta** | write-a-skill, find-skills, self-learning, caveman |
-| **Work** | jira-latam, marginaleffects |
-| **UI** | frontend-design |
+**Topology:**
+- `~/.agents/` — the git repo: `apm.yml`, `skills/`, (lockfile once packs are added).
+- `~/.apm → ~/.agents` — APM's project root (a symlink).
+- `~/.agents/skills/` — real dir; both agents read it. **Must be a real dir**, not a
+  symlink (APM lockfile path-translation requires it).
+- `~/.claude/skills → ~/.agents/skills` — Claude Code reads the same set.
+- `~/agent-skills → ~/.agents` — convenience alias (visible entry point).
 
-Skills are shared between Claude Code and pi via the symlinked `~/.agents/` directory.
+**Provenance:** each skill dir carries a `.source` marker (`origin @ version`) if it's
+third-party; the 4 authored skills (jira-latam, kourosh-dini-omnifocus, py, usql) have
+none. So `for d in skills/*/; do [ -f $d/.source ] || echo $d; done` lists what's yours.
+
+**Workflow:**
+- Add a third-party pack/skill: `apm install owner/repo -g` (lands in `~/.agents/skills`).
+- Update tracked deps: `apm update -g` (reviewable diff — skills are prompts).
+- New machine: `git clone <repo> ~/.agents && ln -s ~/.agents ~/.apm && apm install -g`.
+
+The 78 third-party skills are frozen vendored copies (many upstreams have since moved
+or been removed); curate by deleting dirs, re-add via APM when you want one tracked.
+
+Skills are shared between Claude Code and pi via `~/.agents/skills` + the `~/.claude/skills` symlink.
 
 ### MCP Servers
 
@@ -195,4 +206,4 @@ Also: dark-notify, opencode (AI coding), neon (DRM fix), helium browser, cold-tu
 - **Secrets never tracked** — `.secrets`, `.zshrc.private`, API keys in `.gitignore`.
 - **Theme follows system** — one `~/.theme-mode` file drives the entire stack.
 - **Vim keybindings everywhere** — zsh, neovim, tmux, claude code, pi, yazi.
-- **Agent config is dotfiles** — skills, extensions, modes, and system prompts are version-controlled and symlinked.
+- **Agent config is dotfiles** — extensions, modes, and system prompts are version-controlled and symlinked. (Skills moved to their own APM-managed repo at `~/.agents`.)

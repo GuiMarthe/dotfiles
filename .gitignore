@@ -24,3 +24,6 @@ tags
 sk-ant-*
 .zshrc.private
 agents/skills/jira-latam/scripts/.env
+
+# Agent skills now live in the standalone ~/.apm repo (APM-managed)
+agents/
