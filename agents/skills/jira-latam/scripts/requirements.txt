@@ -1,0 +1,3 @@
+requests
+browser-cookie3
+google-auth

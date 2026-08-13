@@ -74,6 +74,8 @@ brew "wget"
 brew "xclip"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Blazing fast terminal file manager
+brew "yazi"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode"
 # Watcher for macOS 10.14+ light/dark mode changes

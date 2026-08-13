@@ -1,0 +1,9 @@
+[[opener.browser]]
+run = 'open "$@"'
+orphan = true
+desc = "Open in browser"
+for = "macos"
+
+[[open.prepend_rules]]
+mime = "text/html"
+use = "browser"

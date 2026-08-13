@@ -31,4 +31,9 @@ regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:
 [[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
-chars = "\u001b\r"
+chars = "\u001b[13;2u"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Control|Shift"
+chars = "\u001b[109;6u"

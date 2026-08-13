@@ -8,6 +8,9 @@ start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
+# Mouse follows focus when switching monitors
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
 # Set default layouts
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
@@ -64,6 +67,7 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 alt-shift-c = 'reload-config'
+alt-shift-p = 'focus-monitor --wrap-around next'
 
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'

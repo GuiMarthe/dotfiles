@@ -59,6 +59,11 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/guilhermemarthe/dotfiles/claude/statusline.sh",
+    "padding": 0
+  },
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
@@ -89,10 +94,5 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "light",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "/Users/guilhermemarthe/dotfiles/claude/statusline.sh",
-    "padding": 0
-  }
+  "skipAutoPermissionPrompt": true
 }

@@ -1,3 +1,6 @@
+[window]
+decorations_theme_variant = "Dark"
+
 [colors.primary]
 background = "#202734"
 foreground = "#CBCCC6"

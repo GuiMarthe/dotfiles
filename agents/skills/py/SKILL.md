@@ -1,7 +1,7 @@
-  ---
-  name: py
-  description: Guidelines for writting python
-  ---
+---
+name: py
+description: Guidelines for writing python
+---
 
 ## Code Response Format & Style
 

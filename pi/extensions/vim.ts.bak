@@ -1,0 +1,3 @@
+// Full backup of vim.ts before splitting into mode-cycle.ts + powerline.ts + @burneikis/pi-vim
+// Restore with: cp vim.ts.bak vim.ts
+// Delete once everything works.

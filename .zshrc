@@ -116,6 +116,16 @@ ppath() {
   echo "$result" | tee /dev/tty | pbcopy
 }
 
+# yazi wrapper — `y` instead of `yazi` so quitting with `q` cd's the shell
+# into the directory yazi navigated to. `Q` quits without cd.
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  command rm -f -- "$tmp"
+}
+
 # gwt <branch> [dir] — create a git worktree on a new branch.
 # dir may be relative (to cwd) or absolute. Defaults to ../<branch-basename>.
 gwt() {

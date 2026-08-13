@@ -452,3 +452,4 @@ CLAUDE.local.md
 tasks/
 
 .claude/
+.pi/

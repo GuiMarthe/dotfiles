@@ -1,0 +1,15 @@
+{
+  "lastChangelogVersion": "0.84.1",
+  "defaultThinkingLevel": "high",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-8",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-modes",
+    "npm:@burneikis/pi-vim",
+    "npm:pi-mcp-adapter",
+    "npm:pi-claude-plugins",
+    "npm:@devnazim/pi-cmux"
+  ],
+  "theme": "light"
+}
