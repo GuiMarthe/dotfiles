@@ -14,10 +14,8 @@ dotfiles/
 ├── tmux/                                  # tmux config + TPM plugins
 ├── alacritty/                             # GPU terminal (imports theme from current.toml)
 ├── aerospace/                             # i3-like tiling WM for macOS
-├── claude/                                # Claude Code: CLAUDE.md, settings, hooks, keybindings, statusline
-├── .claude/                               # Claude Code: project-local permission overrides
-├── pi/                                    # pi-coding-agent: settings, extensions, modes, themes
-├── (agent skills)                         # NOT in dotfiles — own repo at ~/.agents (APM-managed)
+├── .claude/                               # Claude Code: project-local permission overrides (this repo only)
+├── (agent config + skills)                # NOT in dotfiles — own repo at ~/.agents (APM-managed)
 ├── git/                                   # Git config + global gitignore
 ├── yazi/                                  # File manager config
 ├── scripts/                               # theme-switch (dark/light toggle)
@@ -33,7 +31,7 @@ dotfiles/
 ./dotfile_setup.sh
 ```
 
-Symlinks everything into place: shell configs to `~`, app configs to `~/.config/`, Claude Code to `~/.claude/`, pi to `~/.pi/agent/`. Also initialises `~/.theme-mode` and patches pi-modes to avoid editor conflicts with the vim extension. Agent skills are **not** handled here — they live in a standalone APM-managed repo at `~/.agents` (see below).
+Symlinks everything into place: shell configs to `~`, app configs to `~/.config/`. Also initialises `~/.theme-mode`. AI agent config (Claude Code + pi) is **not** handled here — it lives in the standalone `~/.agents` repo; run `~/.agents/install.sh` to link it and `apm install -g` for skills (see below).
 
 ## Shell (Zsh)
 
@@ -109,7 +107,11 @@ Dark = Ayu Mirage. Light = Rose Pine Dawn.
 
 ## AI Coding Agents
 
-### Claude Code (`claude/`)
+All agent config **and** skills live in the standalone `~/.agents` repo (not in
+dotfiles). Link it with `~/.agents/install.sh`; the shared operating manual is
+`~/.agents/AGENTS.md` (with `~/.agents/CLAUDE.md` a symlink to it).
+
+### Claude Code (`~/.agents/claude/`)
 
 - **Model**: `opus[1m]` (Opus with 1M context).
 - **Effort**: medium.
@@ -125,21 +127,21 @@ Dark = Ayu Mirage. Light = Rose Pine Dawn.
   - `claude-latam` — Vertex AI via LATAM's genai-gateway proxy.
   - `claude-personal` — Anthropic direct (no org key).
 
-### Pi Coding Agent (`pi/`)
+### Pi Coding Agent (`~/.agents/pi/`)
 
 - **Model**: `claude-opus-4-6` with `high` thinking.
 - **Packages**: pi-web-access, pi-modes, @burneikis/pi-vim, pi-mcp-adapter.
 - **Custom extensions** (7 total):
   - `powerline.ts` — footer showing `[MODE] model │ ctx │ ↑in ↓out $cost │ branch`.
-  - `mode-cycle.ts` — Alt+M cycles agent modes (edit/plan/ask/review/debug). Reads pi-modes .md files, toggles tool availability per mode.
+  - `txm-latex.ts` — renders LaTeX math in assistant messages as Unicode box-art (via the `txm` binary) in a panel below the message. Additive/non-destructive.
   - `vim.ts` — replaced by @burneikis/pi-vim (file is now a no-op stub).
   - `git-checkpoint.ts` — records jj/git checkpoints each turn so `/fork` can restore code state.
   - `permission-gate.ts` — blocks `rm -rf`, `sudo`, `chmod 777` with confirmation prompt.
   - `dirty-repo-guard.ts` — warns before session switch/fork if repo has uncommitted changes.
   - `confirm-destructive.ts` — confirmation before clearing/switching/forking sessions.
-- **Custom modes** (`pi/modes/`):
+- **Custom modes** (`~/.agents/pi/modes/`):
   - `debug.md` — disables write/edit tools. Investigate-only: reproduce → trace → diagnose → suggest.
-- **AGENTS.md**: Claude Code's CLAUDE.md is symlinked as pi's AGENTS.md — same system prompt for both agents.
+- **Shared manual**: both agents read `~/.agents/AGENTS.md`. Claude reaches it via `~/.claude/CLAUDE.md` → `~/.agents/CLAUDE.md` → `AGENTS.md`; pi via `~/.pi/agent/AGENTS.md` → `~/.agents/AGENTS.md`. Same prompt for both; `AGENTS.md` is canonical and `CLAUDE.md` is the compatibility symlink.
 
 ### Shared Agent Skills — standalone repo at `~/.agents` (APM-managed)
 
