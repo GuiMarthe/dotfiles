@@ -23,6 +23,7 @@ alias ..='cd ..'
 alias vh='vim .'
 alias dfd='cd ~/dotfiles'
 alias dfdv='cd ~/dotfiles/nvim'
+alias dfa='cd ~/agent-skills/'
 alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi --matplotlib="auto"'
 alias g=git
 

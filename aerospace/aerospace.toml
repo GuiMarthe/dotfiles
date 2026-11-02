@@ -146,6 +146,14 @@ if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace A'
 
 [[on-window-detected]]
+if.app-id = 'com.cmuxterm.app'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
+if.app-id = 'dev.herdr.app'
+run = 'move-node-to-workspace A'
+
+[[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = 'move-node-to-workspace E'
 

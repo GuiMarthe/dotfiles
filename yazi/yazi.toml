@@ -1,9 +1,22 @@
+[mgr]
+show_hidden = true
+
 [[opener.browser]]
 run = 'open "$@"'
 orphan = true
 desc = "Open in browser"
 for = "macos"
 
+[[opener.sioyek]]
+run = 'open -a sioyek "$@"'
+orphan = true
+desc = "Open in Sioyek"
+for = "macos"
+
 [[open.prepend_rules]]
 mime = "text/html"
 use = "browser"
+
+[[open.prepend_rules]]
+mime = "application/pdf"
+use = ["open", "sioyek", "reveal"]
