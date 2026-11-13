@@ -15,6 +15,9 @@ ln -svf "${dir_df}/tmux"/ "${HOME}/.config"
 ln -svf "${dir_df}/git"/ "${HOME}/.config"
 ln -svf "${dir_df}/yazi"/ "${HOME}/.config"
 
+# usql
+ln -svf "${dir_df}/usql/usqlrc" "${HOME}/.usqlrc"
+
 # dark-notify launchd agent
 mkdir -p "${HOME}/Library/LaunchAgents"
 ln -svf "${dir_df}/launchd/ke.bou.dark-notify.plist" "${HOME}/Library/LaunchAgents/"

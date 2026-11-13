@@ -147,3 +147,6 @@ export PATH="/Users/guilhermemarthe/.local/bin/codeen:$PATH"
 
 # Private, untracked zsh config (provider wrappers, machine-specific funcs)
 [ -f ~/dotfiles/.zshrc.private ] && source ~/dotfiles/.zshrc.private
+
+# pi-cosmos: launch pi with the cosmos-studio-ml plugin path (see ~/Documents/latam-repos/pi-cosmos)
+[ -f ~/Documents/latam-repos/pi-cosmos/config/pi.zsh ] && source ~/Documents/latam-repos/pi-cosmos/config/pi.zsh

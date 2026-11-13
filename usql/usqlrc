@@ -1,0 +1,6 @@
+\pset pager always
+\pset linestyle unicode
+\pset border 2
+\set SYNTAX_HL_STYLE `[ "$(cat ~/.theme-mode)" = light ] && echo rose-pine-dawn || echo dracula`
+\set SYNTAX_HL_OVERRIDE_BG false
+\cset latam bq://ebiz-data-prod/consolidated_order_detail
