@@ -5,8 +5,6 @@ tap "homebrew-zathura/zathura", trusted: { formulae: ["zathura"] }
 tap "nicholasraimbault/neon"
 tap "nikitabobko/tap", trusted: true
 tap "xo/xo"
-# Dependency manager for AI agent configuration
-brew "apm"
 # Library for manipulating PNG images
 brew "libpng"
 # C library of Git core methods that is re-entrant and linkable
@@ -17,6 +15,8 @@ brew "bat"
 brew "freetype"
 # Cross-platform make
 brew "cmake"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Play, record, convert, and stream select audio and video codecs
@@ -31,6 +31,10 @@ brew "dash-mpd-cli"
 brew "libtiff"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
 # Intelligent archive extraction
 brew "dtrx"
 # Simple, fast and user-friendly alternative to find
@@ -181,7 +185,7 @@ cask "jdownloader"
 cask "keyboard-cleaner"
 # Full TeX Live distribution with GUI applications
 cask "mactex"
-# Shows the next meeting in the menu bar
+# Meetings in your menu bar
 cask "meetingbar"
 # VPN client for secure internet access and private browsing
 cask "nordvpn"
@@ -219,5 +223,6 @@ cask "zen"
 cask "zotero"
 cargo "md2nb"
 cargo "txm"
+npm "@dataform/cli"
 npm "corepack"
 npm "pnpm"

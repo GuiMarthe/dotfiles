@@ -1,0 +1,32 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-b ctrl-b": "terminal_panel::ToggleFocus",
+      "ctrl-b z": "workspace::ToggleZoom",
+      "ctrl-e": "workspace::ToggleLeftDock",
+      "ctrl-h": "command_palette::Toggle",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleLeftDock",
+      ", f f": "buffer_search::Deploy",
+      ", r e n": "editor::Rename",
+      ", r e f": "editor::FindAllReferences",
+      ", v d": "editor::ToggleDiagnostics",
+      "ctrl-]": "editor::GoToDefinition",
+      "shift-z shift-z": "workspace::Save",
+      ", ,": ["tab_switcher::Toggle", { "select_last": true }],
+      "shift-k": "editor::Hover",
+    },
+  },
+]

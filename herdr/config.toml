@@ -1,0 +1,42 @@
+onboarding = false
+
+[ui]
+status_indicators = "symbols"
+
+[theme]
+name = "rose-pine-dawn"
+auto_switch = false
+
+# Keys not listed here keep herdr's defaults (prefix+? shows the full map).
+[keys]
+prefix = "ctrl+b"
+
+# --- daily workflow --------------------------------------------------------
+cycle_pane_next  = "prefix+b"
+next_tab         = "prefix+n"
+new_tab          = "prefix+c"
+close_pane       = "prefix+x"
+close_tab        = "prefix+shift+x"
+new_workspace    = "prefix+g"
+workspace_picker = "prefix+s"
+
+# inside the workspace picker (navigate mode): j/k move between workspaces,
+# ctrl+j/k move between panes (their defaults were j/k)
+navigate_workspace_down = "j"
+navigate_workspace_up   = "k"
+navigate_pane_down      = "ctrl+j"
+navigate_pane_up        = "ctrl+k"
+
+# --- carried over from tmux.conf ------------------------------------------
+split_horizontal = "prefix+double_quote"   # " stacked
+split_vertical   = "prefix+percent"        # % side by side
+reload_config    = "prefix+r"              # bind r source-file
+
+# --- defaults displaced by the keys above ---------------------------------
+goto           = "prefix+w"         # was prefix+g
+settings       = "prefix+t"         # was prefix+s; theme picker lives here
+toggle_sidebar = "prefix+shift+b"   # was prefix+b
+resize_mode    = "prefix+shift+r"   # was prefix+r
+
+[experimental]
+pane_history = true
