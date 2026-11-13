@@ -453,3 +453,6 @@ tasks/
 
 .claude/
 .pi/
+
+# macOS Finder metadata
+.DS_Store
